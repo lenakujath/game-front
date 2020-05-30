@@ -1,0 +1,80 @@
+.title {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    margin-top: 15vh;
+    padding: 2vh;
+    font-size: 20px;
+}
+
+.title h1 {
+    font-size: 4.5rem;
+    font-family: 'Teko', sans-serif;
+}
+
+.title h4 {
+    font-size: 2.25rem;
+    font-family: 'Teko', sans-serif;
+}
+
+.instructions {
+    font-family: 'Teko', sans-serif;
+    color: white;
+    padding: 7vh;
+}
+
+.button1 {
+    font-family: 'Teko', sans-serif;
+    padding: 2vh;
+    width: 30vh;
+    border-radius: 4em;
+    font-weight: 700;
+}
+
+.button1:hover {
+    transform: scale(1.1);
+}
+
+.button1:focus {
+    outline: none;
+}
+
+.screen {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.btns {
+    display: flex;
+    border-radius: 30%;
+}
+
+.home-btn-image {
+    height: 20px;
+    margin-right: 10px;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+@media all and (max-width:30em) {
+    .title h1 {
+        font-size: 3.3rem;
+    }
+
+    .title h4 {
+        font-size: 1.6rem;
+    }
+}

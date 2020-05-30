@@ -1,0 +1,72 @@
+.thegame{
+    margin-bottom: 15vh;
+    justify-content: center;
+}
+
+.video-and-questions {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theYTPlayer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.quiz-text{
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    color: white!important;
+    font-weight: 700;
+    font-size: 1.8em!important
+}
+
+.theYTPlayer .show {
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+@media all and (max-width:30em){
+    .quiz-text {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 1em;
+        font-size: 1.3em!important;
+    }
+
+    .theYTPlayer iframe {
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 40vh;
+        display: block;
+    }
+
+    .theYTPlayer {
+        width: 100%;
+    }
+
+    .video-and-questions {
+        width: 100%;
+        display: flex;
+    }
+
+    .theYTPlayer .show {
+        width: 100%;
+    }
+}
+
