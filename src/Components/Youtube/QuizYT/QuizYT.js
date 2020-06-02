@@ -15,6 +15,7 @@ class QuizYT extends Component {
         points: 0,
         display: 'question',
         giveMeConfetti:true,
+        counter: 1,
     }
     // function the is passing to the next question{by increasing the index} and adding points for the right ones
     updateProgress = (field, val) => {
@@ -33,6 +34,7 @@ class QuizYT extends Component {
                 answers: Shuffle(questions[index + 1].answers),
                 display: 'question',
                 giveMeConfetti: true,
+                counter: this.state.counter + 1
             });
 
         } else {
@@ -105,6 +107,7 @@ class QuizYT extends Component {
                                             </button>
                                         ))}
                                     </div>
+                                    <p className='yt-question-counter'>{this.state.counter}/5</p>
                                 </div>
                             )
                         }
