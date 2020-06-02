@@ -1,6 +1,27 @@
-/* .btn-text-prefil {
 
-} */
-/* .profile-text{
-color: white;
-} */
+.profile-text{
+border: 1px solid rgb(114, 18, 204);
+background-color:  rgb(49, 44, 113, 0.75);
+margin-top: 4em;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2em;
+
+} 
+.profile-icon-user{
+    width: 3em;
+    height: 3em;
+}
+.myprofile-title{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+.game-points-by-category{
+display: flex;
+justify-content: space-between;
+}
+.music-points-display {
+    margin-right: 3em;
+}
