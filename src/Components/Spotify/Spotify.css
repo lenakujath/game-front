@@ -109,6 +109,15 @@ li {
     font-family: 'Teko', sans-serif;
 }
 
+ .show.counting {
+
+    
+
+    position: absolute;
+    margin-left: 48%;
+    margin-top: -10vh;
+}
+
 
 @media only screen and (max-width: 750px) {
 
