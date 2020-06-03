@@ -333,7 +333,7 @@ class SpotifyRoundOne extends React.Component {
                                     ))}
                                 </div>
                                 <div id="counter" className="instruct">
-                                    <p className={this.answerCountShow ? 'show' : 'hide'}>
+                                    <p className={this.answerCountShow ? 'show counting' : 'hide'}>
                                         {texts[language].correctAnswers}
                                         {`${currentAttempt} / ${this.NUMBER_OF_SONGS_TO_PLAY_WITH}`}
                                     </p>
