@@ -51,7 +51,7 @@ class SpotifyRoundOne extends React.Component {
         correctAnswers: 0,
         score: 0,
         songUrl: '',
-        playerState: Sound.status.PLAYING,
+        playerState: Sound.status.STOPPED,
         playing: false,
         playlistID: '37i9dQZF1DZ06evO2EUrsw',
         currentAttempt: 0,
@@ -75,7 +75,8 @@ class SpotifyRoundOne extends React.Component {
 
         this.setState({
 
-            loading: false
+            loading: false,
+            playerState: Sound.status.PLAYING
         });
 
         const savedState = JSON.parse(localStorage.savedState);
@@ -286,15 +287,15 @@ class SpotifyRoundOne extends React.Component {
 
         const { language } = this.props;
 
-        if (loading) {
-            return (
-                <div className="loading">
-                    <Loading />
-                </div>
-            );
-        }
+        // if (loading) {
+        //     return (
+        //         <div className="loading">
+        //             <Loading />
+        //         </div>
+        //     );
+        // }
      
-        else {  
+        
         return (
                 <section>
                     {}
@@ -394,7 +395,7 @@ class SpotifyRoundOne extends React.Component {
                 
                 </section>
                 
-            )};
+            );
         }
     }
 
