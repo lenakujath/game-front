@@ -6,10 +6,8 @@ import Shuffle from '../../Utils/Shuffle';
 import ButtonIgRoundOne from './ButtonIgRoundOne';
 import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
-
 import Loading from '../../Utils/Loading/Loading';
 import Register from '../../Register/Register';
-
 import { MyContext } from '../../../context/MyProvider';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import Navbar from '../../Navbar/Navbar';

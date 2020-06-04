@@ -14,6 +14,7 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
 import { MyContext } from '../../../context/MyProvider';
+import Loading from '../../Utils/Loading/Loading';
 
 
 class SpotifyRoundOne extends React.Component {
@@ -45,6 +46,7 @@ class SpotifyRoundOne extends React.Component {
             uri: '',
         },
 
+        loading: true,
         hideResults: true,
         correctAnswers: 0,
         score: 0,
@@ -56,12 +58,8 @@ class SpotifyRoundOne extends React.Component {
 
         // create a playlist array to save the chosen tracks from the user
         playlistTracks: [],
-        noTracks: true,
-        // songList: [],
+        noTracks: true,        
         playlistName: 'Pegatinas',
-        // addedSong: false,
-        // buttonText: 'Ponla en tu playlist!',
-        // buttonText2: 'Ya ésta en tu lista!',
         giveMeConfetti: false,
     }
 
@@ -74,6 +72,11 @@ class SpotifyRoundOne extends React.Component {
         this.spotifyObject = await Spotify.getPlaylist(playlistID);
         this.filterRightSongsFromSpotifyObject();
         this.setNewRandomSong();
+
+        this.setState({
+
+            loading: false
+        });
 
         const savedState = JSON.parse(localStorage.savedState);
 
@@ -279,109 +282,121 @@ class SpotifyRoundOne extends React.Component {
 
     render() {
 
-        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, songNames, name, songUrl, playerState, playing, currentAttempt } = this.state;
+        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, songNames, name, songUrl, playerState, playing, currentAttempt, loading } = this.state;
 
         const { language } = this.props;
 
+        if (loading) {
+            return (
+                <div className="loading">
+                    <Loading />
+                </div>
+            );
+        }
+     
+        else {  
         return (
-            <section>
-                {/* <ShareTheGame score={score} /> */}
-                {currentAttempt <= this.NUMBER_OF_SONGS_TO_PLAY_WITH
-                    ? (
-                        <div className="show">
-                            <div className="QuestionAndAnswers">
-                                <div className="Countdown">
-                                    <PlayerCountdown
+                <section>
+                    {}
+                    {/* <ShareTheGame score={score} /> */}
+                    {currentAttempt <= this.NUMBER_OF_SONGS_TO_PLAY_WITH
+                        ? (
+                            <div className="show">
+                                <div className="QuestionAndAnswers">
+                                    <div className="Countdown">
+                                        <PlayerCountdown
+                                            language={language}
+                                            setNewRandomSong={this.setNewRandomSong}
+                                            songURL={currentSong.preview_url}
+                                            coincidence={this.checkCoincidence}
+                                            showAnswerCount={this.showAnswerCount}
+                                            currentAttempt={currentAttempt}
+                                            totalAttempts={this.NUMBER_OF_SONGS_TO_PLAY_WITH}
+                                        />
+                                    </div>
+                                    <div className="spotify-game-question">
+                                        <p>{texts[language].spotifyRoundOneQuestion}</p>
+                                    </div>
+                                    <div className={`FourButtons ${hideResults ? 'forceGrayColor' : ''}`}>
+                                        {songNames.map((songName) => (
+                                            <div>
+                                                {
+                                                // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
+                                                // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
+                                                    giveMeConfetti
+                                                    && (
+                                                        <Confetti
+                                                            width={window.innerWidth}
+                                                            height={window.innerHeight}
+                                                            recycle={false}
+                                                            gravity={0.6}
+                                                        />
+                                                    )
+                                                }
+                                                <Button
+                                                    key={songName}
+                                                    printedSong={songName}
+                                                    // We write it like this so the function writeChoosenSong isn't executed when the button is
+                                                    // rendered but when the button is clicked. Different than what we're doing some lines
+                                                    // above in the onMusicPlays, setNewRandomSong or songURL
+                                                    onClick={() => this.writeChosenSong(songName)}
+                                                    currentSong={currentSong.name}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div id="counter" className="instruct">
+                                        <p className={this.answerCountShow ? 'show counting' : 'hide'}>
+                                            {texts[language].correctAnswers}
+                                            {`${currentAttempt} / ${this.NUMBER_OF_SONGS_TO_PLAY_WITH}`}
+                                        </p>
+                                        <br />
+                                        {/* <p className={this.answerCountShow ? 'show' : 'hide'}>
+                                            {texts[language].pointsText}
+                                            {score}
+                                        </p> */}
+                                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                        : (
+                            <div>
+                                <Navbar addedClass="fixTop" pagein="any" />
+                                <ListenedSongs
+                                    username={name}
+                                    unknownSongs={this.unknownSongs}
+                                    language={language}
+                                    url={songUrl}
+                                    playStatus={playerState}
+                                    onClick={playing}
+                                    score={score}
+                                    roundfrom="one"
+                                    adding={this.addTrack}
+                                    remove={this.removeTrack}
+                                    naming={this.updatePlaylistName}
+                                    save={this.savePlaylist}
+                                    playlistName={playlistName}
+                                    noTracks={noTracks}
+                                    playlistTracks={playlistTracks}
+                                />
+                                <div className="social-media-follow-buttons">
+                                    <SocialMedia
                                         language={language}
-                                        setNewRandomSong={this.setNewRandomSong}
-                                        songURL={currentSong.preview_url}
-                                        coincidence={this.checkCoincidence}
-                                        showAnswerCount={this.showAnswerCount}
-                                        currentAttempt={currentAttempt}
-                                        totalAttempts={this.NUMBER_OF_SONGS_TO_PLAY_WITH}
                                     />
                                 </div>
-                                <div className="spotify-game-question">
-                                    <p>{texts[language].spotifyRoundOneQuestion}</p>
-                                </div>
-                                <div className={`FourButtons ${hideResults ? 'forceGrayColor' : ''}`}>
-                                    {songNames.map((songName) => (
-                                        <div>
-                                            {
-                                            // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
-                                            // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
-                                                giveMeConfetti
-                                                && (
-                                                    <Confetti
-                                                        width={window.innerWidth}
-                                                        height={window.innerHeight}
-                                                        recycle={false}
-                                                        gravity={0.6}
-                                                    />
-                                                )
-                                            }
-                                            <Button
-                                                key={songName}
-                                                printedSong={songName}
-                                                // We write it like this so the function writeChoosenSong isn't executed when the button is
-                                                // rendered but when the button is clicked. Different than what we're doing some lines
-                                                // above in the onMusicPlays, setNewRandomSong or songURL
-                                                onClick={() => this.writeChosenSong(songName)}
-                                                currentSong={currentSong.name}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                                <div id="counter" className="instruct">
-                                    <p className={this.answerCountShow ? 'show counting' : 'hide'}>
-                                        {texts[language].correctAnswers}
-                                        {`${currentAttempt} / ${this.NUMBER_OF_SONGS_TO_PLAY_WITH}`}
-                                    </p>
-                                    <br />
-                                    {/* <p className={this.answerCountShow ? 'show' : 'hide'}>
-                                        {texts[language].pointsText}
-                                        {score}
-                                    </p> */}
-                                    <hr />
-                                </div>
                             </div>
-                        </div>
-                    )
-                    : (
-                        <div>
-                            <Navbar addedClass="fixTop" pagein="any" />
-                            <ListenedSongs
-                                username={name}
-                                unknownSongs={this.unknownSongs}
-                                language={language}
-                                url={songUrl}
-                                playStatus={playerState}
-                                onClick={playing}
-                                score={score}
-                                roundfrom="one"
-                                adding={this.addTrack}
-                                remove={this.removeTrack}
-                                naming={this.updatePlaylistName}
-                                save={this.savePlaylist}
-                                playlistName={playlistName}
-                                noTracks={noTracks}
-                                playlistTracks={playlistTracks}
-                            />
-                            <div className="social-media-follow-buttons">
-                                <SocialMedia
-                                    language={language}
-                                />
-                            </div>
-                        </div>
-                    )}
-                {/* {name !== undefined
-                    ? <Link to='spotifyRoundTwo'>Go to Spotify round two</Link>
-                    : <Register />
-                } */}
-            </section>
-        );
+                        )}
+                    {/* {name !== undefined
+                        ? <Link to='spotifyRoundTwo'>Go to Spotify round two</Link>
+                        : <Register />
+                    } */}
+                
+                </section>
+                
+            )};
+        }
     }
-}
 
 SpotifyRoundOne.contextType = MyContext;
 
