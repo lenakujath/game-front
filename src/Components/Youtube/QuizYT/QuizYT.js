@@ -16,11 +16,14 @@ class QuizYT extends Component {
         display: 'question',
         giveMeConfetti:true,
         counter: 1,
+        backgroundcolor:''
     }
     // function the is passing to the next question{by increasing the index} and adding points for the right ones
     updateProgress = (field, val) => {
         this.setState({ [field]: val });
       };
+
+ 
 
     toNext = () => {
         const { questions } = this.props;
@@ -34,7 +37,7 @@ class QuizYT extends Component {
                 answers: Shuffle(questions[index + 1].answers),
                 display: 'question',
                 giveMeConfetti: true,
-                counter: this.state.counter + 1
+                counter: this.state.counter + 1,
             });
 
         } else {
@@ -44,17 +47,18 @@ class QuizYT extends Component {
 
     checkIf = (e) => {
 
-        const { correctAnswer, points } = this.state;
+        const { correctAnswer, points, backgroundcolor } = this.state;
 
         const displayedAnswer = e.target.value;
 
         if (displayedAnswer === correctAnswer) {
             this.setState({
                 points: points + 357,
+                backgroundcolor: 'purple',
                 display: 'timer',
             });
-
             this.props.showConfetti();
+
             // this.updateProgress("percent", this.state.percent + 1)
             setTimeout(() => {
                 this.toNext();
@@ -62,11 +66,15 @@ class QuizYT extends Component {
             localStorage.setItem ('yt_points_1', this.state.points)
         }
     }
-
+changeToRed = () => {
+    this.setState ({
+        backgroundcolor: 'red'
+    })
+}
     render() {
 
         const { questions } = this.props;
-        const { index, points, display, answers, giveMeConfetti } = this.state;
+        const { index, points, display, answers, giveMeConfetti, backgroundcolor } = this.state;
 
         return (
             <MyContext.Consumer>
@@ -96,7 +104,7 @@ class QuizYT extends Component {
                                     </div>
                                     <div className="btn-4-YT">
                                         {answers.map((item, index) => (
-                                            <button
+                                            <button style={{backgroundColor: backgroundcolor}}
                                                 type="button"
                                                 value={item}
                                                 onClick={(e) => {this.checkIf(e)}}
