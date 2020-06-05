@@ -1,7 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable max-len */
 import React, { Component } from 'react';
-import '../Rounds/Rounds.css';
+//import '../Rounds/Rounds.css';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../context/MyProvider';
 import '../Home/Home.css';
@@ -115,7 +115,7 @@ class Register extends Component {
             return (
                 <MyContext.Consumer>
                     {(context) => (
-                        <div>
+                        <div >
                             <div className={link}>
                                 <div className="screenDiv">
                                     <div className="screenDiv__firstDiv">
@@ -133,7 +133,7 @@ class Register extends Component {
                                                 <img
                                                     src={albumObject.images[0].url}
                                                     alt={albumObject.name}
-                                                    className="blackBorder"
+                                                    className="blackBorder album"
                                                 />
                                             </button>
                                         ))}

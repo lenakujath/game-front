@@ -43,11 +43,32 @@ display: flex;
 
 /* JAIMES CSS */
 .screenDiv {
-    display: flex;
+     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    height: 100%;
+    flex-direction: column; 
+    
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    /* display: flex;
+    position: absolute;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white; */
+
 }
 
 .screenDiv__firstDiv {
@@ -64,8 +85,8 @@ display: flex;
 }
 
 .blackBorder{
-    width: 200px;
-    margin: 20px;
+    /* width: 200px;
+    margin: 20px; */
     border: 3px solid black;
 }
 
@@ -84,9 +105,15 @@ display: flex;
     outline: none;
 }
 
-.img_concert{
+/* .img_concert{
     width: 5em;
-}
+} */
+
+ .album {
+
+    width: 16vh;
+} 
+
 
 .suma-puntos-button {
     padding: 15px 39px;
@@ -136,4 +163,8 @@ display: flex;
     .round-second-question {
         font-size: 1.3rem;
     }
+
+  
+
+    
 }
