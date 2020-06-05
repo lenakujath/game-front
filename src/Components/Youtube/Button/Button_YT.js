@@ -1,5 +1,6 @@
 import React from 'react';
 import './Button_YT.css';
+//import '../../Spotify/Button/Button.css'
 
 const ButtonYT = (props) => {
     
@@ -17,7 +18,9 @@ const ButtonYT = (props) => {
     return (
         <button
             type="button"
-            className="myButtonYT buttonYT"
+             className="myButtonYT buttonYT"
+            //className="myButton button"
+            
             onClick={() => checkIt()}
         >
             <span className="titleColorYT">{displayedSong}</span>

@@ -110,7 +110,7 @@
 
 .save {
 
-    margin: 10px 11em 10px 0;
+    margin: 10px 8em 10px;
     height: 8vh;
     font-size: 1em;
     background-color: #766dca;
@@ -199,7 +199,8 @@ input {
 
     .btn-primary {
         padding: 4px 10px;
-        margin-top: 4px;
+        margin-top: 1.5vh;
+        width: 80%;
     }
 
 

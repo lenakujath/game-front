@@ -34,7 +34,7 @@ class spotifyRoundTwo extends React.Component {
     // All the songs that the user guessed wrong are pushed into this array
     unknownSongs = [];
 
-    NUMBER_OF_SONGS_TO_PLAY_WITH = 3;
+    NUMBER_OF_SONGS_TO_PLAY_WITH = 10;
 
     state = {
         songNames: [],
@@ -328,7 +328,7 @@ class spotifyRoundTwo extends React.Component {
                                 ))}
                             </div>
                             <div id="counter" className="instruct">
-                                <p className={this.answerCountShow ? 'show' : 'hide'}>
+                                <p className={this.answerCountShow ? 'show counting' : 'hide'}>
                                     {`${currentAttempt} / ${this.NUMBER_OF_SONGS_TO_PLAY_WITH}`}
                                 </p>
                                 <br />
