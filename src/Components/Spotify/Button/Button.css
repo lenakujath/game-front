@@ -82,9 +82,10 @@ button {
 @media all and (max-width:450px) {
     .myButton {
         display:flex;
-        margin:0.4em auto;
+        margin:0.2em auto;
         flex: 25%;
         font-family: 'Teko', sans-serif;
+        width: 30vh;
     }
 
     .FourButtons {
