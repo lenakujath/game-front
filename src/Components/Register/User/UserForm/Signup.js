@@ -22,13 +22,21 @@ const SignUp = ({ language }) => {
 
     const postProfile = (e) => {
         e.preventDefault();
-
-        fetch('//localhost:5000/user', {
+   //test password: no error --> fetch
+        fetch('/api/auth/signup', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
             }),
-            body: JSON.stringify({ firstName, lastName, username, birthdate, email, password, repeatedPassword }),
+            //change data 
+            body: JSON.stringify({ 
+                
+            "username": username,
+            "email": email,
+            "password": password,
+            "roles": ["user"]
+                
+                 }),
         })
             .then((res) => {
                 if (res) {

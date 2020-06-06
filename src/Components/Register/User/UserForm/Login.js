@@ -21,12 +21,18 @@ const Login = (props) => {
     const logUser = (e) => {
         e.preventDefault();
         console.log('username and password', username, password);
-        fetch('//localhost:5000/log', {
+        fetch('/api/auth/signin', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
             }),
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({
+
+                "username": username,             
+                "password": password,
+                               
+                 }),
+                 
         }).then((res) => {
             console.log('response', res);
             if (res.status === 200) {
