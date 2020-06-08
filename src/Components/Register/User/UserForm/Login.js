@@ -21,7 +21,7 @@ const Login = (props) => {
     const logUser = (e) => {
         e.preventDefault();
         console.log('username and password', username, password);
-        fetch('/api/auth/signin', {
+        fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',

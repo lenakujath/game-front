@@ -23,7 +23,7 @@ const SignUp = ({ language }) => {
     const postProfile = (e) => {
         e.preventDefault();
    //test password: no error --> fetch
-        fetch('/api/auth/signup', {
+        fetch('https://authnodejstest.herokuapp.com/api/auth/signup', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
