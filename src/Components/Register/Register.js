@@ -1,7 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable max-len */
 import React, { Component } from 'react';
-//import '../Rounds/Rounds.css';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../context/MyProvider';
 import '../Home/Home.css';
