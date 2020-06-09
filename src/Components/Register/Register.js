@@ -6,7 +6,7 @@ import { MyContext } from '../../context/MyProvider';
 import '../Home/Home.css';
 import './Register.css';
 import Spotify from '../Utils/Spotify';
-import videoDataObject from '../Youtube/VideoDataObject';
+//import videoDataObject from '../Youtube/VideoDataObject';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
 import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';

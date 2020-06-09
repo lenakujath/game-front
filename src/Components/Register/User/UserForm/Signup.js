@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import texts from '../../../../texts.json';
 
 const SignUp = ({ language }) => {
