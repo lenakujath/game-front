@@ -7,7 +7,8 @@ import Confetti from 'react-confetti';
 
 class QuizYT extends Component {
 
-    state={
+    state = {
+
         index: 0,
         percent: 1,
         correctAnswer: this.props.questions[0].answers[0],
