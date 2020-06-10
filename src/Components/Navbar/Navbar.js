@@ -119,11 +119,11 @@ class Navbar extends React.Component {
                                                                         {context.state.username}
                                                                         {' '}
                                                                     </p>
-                                                                    <p>
+                                                                    {/* <p>
                                                                         {context.state.total_app_points || 0}
                                                                         {' '}
                                                                         {texts[userLanguage].pointsText}
-                                                                    </p>
+                                                                    </p> */}
                                                                 </div>
                                                             )
                                                             : <UserForm mainpage="navbar" language={language} />
