@@ -8,10 +8,7 @@ class MyProvider extends Component {
 
     state = {
         
-        first_name: '',
-        last_name: '',
         username: '',
-        birth_date: '',
         email: '',
         points_spotify_round_one: '',
         points_spotify_round_two: '',
@@ -85,10 +82,7 @@ class MyProvider extends Component {
                 }),
 
                 logUserIntoContext: (data) => this.setState({
-                    first_name: data[0].first_name,
-                    last_name: data[0].last_name,
                     username: data[0].username,
-                    birth_date: data[0].birth_date,
                     email: data[0].email,
                     points_spotify_round_one: data[0].points_spotify_round_one,
                     points_spotify_round_two: data[0].points_spotify_round_two,
