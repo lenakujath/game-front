@@ -64,10 +64,8 @@ class MyProvider extends Component {
                 },
 
                 clearUser: () => this.setState({
-                    first_name: '',
-                    last_name: '',
+                   
                     username: '',
-                    birth_date: '',
                     email: '',
                     points_spotify_round_one: '',
                     points_spotify_round_two: '',
