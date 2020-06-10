@@ -15,10 +15,11 @@ class QuizYT extends Component {
         answers: Shuffle(this.props.questions[0].answers),
         points: 0,
         display: 'question',
-        giveMeConfetti:true,
+        giveMeConfetti: true,
         counter: 1,
-        backgroundcolor:''
+        backgroundcolor: ''
     }
+
     // function the is passing to the next question{by increasing the index} and adding points for the right ones
     updateProgress = (field, val) => {
         this.setState({ [field]: val });
@@ -27,6 +28,7 @@ class QuizYT extends Component {
  
 
     toNext = () => {
+        
         const { questions } = this.props;
         const { index } = this.state;
 
