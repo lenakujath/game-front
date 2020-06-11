@@ -17,7 +17,9 @@ class QuizYT extends Component {
         display: 'question',
         giveMeConfetti: true,
         counter: 1,
-        backgroundcolor: ''
+        backgroundcolor: '',
+        clicked: false,
+        wrong: ''
     }
 
     // function the is passing to the next question{by increasing the index} and adding points for the right ones
@@ -47,41 +49,65 @@ class QuizYT extends Component {
         }
     }
 
+    componentDidUpdate  =  (prevState) => {
+            
+        if (prevState.wrong !== this.state.wrong) {
+
+            setTimeout(() => {
+                this.setState({
+
+                    wrong: ''
+
+                });
+            }, 2000)           
+          }
+        }
+
+
     checkIf = (e) => {
 
-        const { correctAnswer, points, backgroundcolor } = this.state;
+        const { correctAnswer, points } = this.state;
 
         const displayedAnswer = e.target.value;
 
-        if (displayedAnswer === correctAnswer) {
+        if (displayedAnswer !== correctAnswer) {
+
+                
             this.setState({
-                points: points + 357,
-                backgroundcolor: 'purple',
+
+             wrong: 'the-yt-quiz'
+
+          })
+         
+         }
+         
+       else if (displayedAnswer === correctAnswer) {
+
+            this.setState({
+                points: points + 357,              
                 display: 'timer',
+                clicked: true
             });
             this.props.showConfetti();
 
             // this.updateProgress("percent", this.state.percent + 1)
-            setTimeout(() => {
-                this.toNext();
-            }, 5000);
-            localStorage.setItem ('yt_points_1', this.state.points)
-        }
-    }
-changeToRed = () => {
-    this.setState ({
-        backgroundcolor: 'red'
-    })
-}
+                setTimeout(() => {
+                    this.toNext();
+                },  5000);
+                localStorage.setItem ('yt_points_1', this.state.points)
+        }        
+     }
+
+
     render() {
 
         const { questions } = this.props;
-        const { index, points, display, answers, giveMeConfetti, backgroundcolor } = this.state;
+        const { index, points, display, answers, giveMeConfetti, backgroundcolor, wrong } = this.state;
 
         return (
             <MyContext.Consumer>
                 {(context) => (
-                    <div className="the-yt-quiz">
+                    <div className={wrong} >
                         {display === 'timer'
                             ? (
                                 <div className="confeti-countdown">
@@ -104,16 +130,21 @@ changeToRed = () => {
                                     <div className="show">
                                         <h4 className="quiz-text">{questions[index].question}</h4>
                                     </div>
+                                    {/* add classname as variable in state and change by click
+                                        make correct and incorrect class */}
                                     <div className="btn-4-YT">
                                         {answers.map((item, index) => (
                                             <button style={{backgroundColor: backgroundcolor}}
+                                             
                                                 type="button"
                                                 value={item}
                                                 onClick={(e) => {this.checkIf(e)}}
                                                 key={index}
+                                                id= {index}
                                                 className="myButtonYT buttonYT titleColorYT"
                                             >
                                                 {item}
+                                               
                                             </button>
                                         ))}
                                     </div>
