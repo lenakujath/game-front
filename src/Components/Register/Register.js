@@ -14,6 +14,7 @@ import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
 
 class Register extends Component {
     state = {
+        
         link: 'hide',
         albums: [],
         selectedAlbum: '',

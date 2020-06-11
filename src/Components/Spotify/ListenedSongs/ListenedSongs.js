@@ -10,7 +10,7 @@ import './ListenedSongs.css';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import Register from '../../Register/Register';
 import { MyContext } from '../../../context/MyProvider';
-import GameEnded from '../../GameEnded/GameEnded';
+//import GameEnded from '../../GameEnded/GameEnded';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
 

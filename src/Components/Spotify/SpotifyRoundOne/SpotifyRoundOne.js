@@ -14,7 +14,6 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
 import { MyContext } from '../../../context/MyProvider';
-import Loading from '../../Utils/Loading/Loading';
 
 
 class SpotifyRoundOne extends React.Component {
@@ -283,17 +282,9 @@ class SpotifyRoundOne extends React.Component {
 
     render() {
 
-        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, songNames, name, songUrl, playerState, playing, currentAttempt, loading } = this.state;
+        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, songNames, name, songUrl, playerState, playing, currentAttempt } = this.state;
 
         const { language } = this.props;
-
-        // if (loading) {
-        //     return (
-        //         <div className="loading">
-        //             <Loading />
-        //         </div>
-        //     );
-        // }
      
         
         return (

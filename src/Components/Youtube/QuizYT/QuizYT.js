@@ -25,8 +25,6 @@ class QuizYT extends Component {
         this.setState({ [field]: val });
       };
 
- 
-
     toNext = () => {
         
         const { questions } = this.props;
@@ -34,6 +32,7 @@ class QuizYT extends Component {
 
         // if(this.state.index > this.state.counter){
         if (index < 4) {
+            
             this.setState({
                 index: index + 1,
                 correctAnswer: questions[index + 1].answers[0],

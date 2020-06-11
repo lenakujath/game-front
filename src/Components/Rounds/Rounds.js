@@ -14,6 +14,7 @@ import { MyContext } from '../../context/MyProvider';
 class Rounds extends React.Component {
 
     state = {
+        
         page: 'hideGame',
         button: 'btn-game',
         spotify: false,
