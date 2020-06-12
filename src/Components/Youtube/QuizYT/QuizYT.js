@@ -64,11 +64,11 @@ class QuizYT extends Component {
         }
 
 
-    checkIf = (e) => {
+    checkIf =  (e) => {
 
-        const { correctAnswer, points } = this.state;
+        const {correctAnswer, points } = this.state;
 
-        const displayedAnswer = e.target.value;
+        const displayedAnswer =   e.target.value;
 
         if (displayedAnswer !== correctAnswer) {
 
@@ -77,9 +77,8 @@ class QuizYT extends Component {
 
              wrong: 'the-yt-quiz'
 
-          })
-         
-         }
+          })        
+        }
          
        else if (displayedAnswer === correctAnswer) {
 
