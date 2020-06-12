@@ -82,7 +82,10 @@ class Rounds extends React.Component {
                         )
                         : youtube ?
                         (
-                            <h4>{texts[language].youtubeInstructionsR1}</h4>
+                            <div>
+                                <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                <h5>{texts[language].youtubeAddition}</h5> 
+                             </div>
                         )
                         : null
                     }
