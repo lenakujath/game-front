@@ -208,12 +208,7 @@ class Register extends Component {
                                         score={score}
                                     />
                                 </div>
-{/*
-                                <Link to="instagramroundtwo">
-                                    <button className="button1 instagram-start-button" type="button" onClick={() => context.addPoints(score)}>
-                                        Start
-                                    </button>
-                                </Link> */}
+                                
                             </div>
                             <div>
                                 <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>

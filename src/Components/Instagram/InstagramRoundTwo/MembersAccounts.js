@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { MyContext } from '../../../context/MyProvider';
-// import SocialMedia from '../../SocialMedia/SocialMedia';
+//import { MyContext } from '../../../context/MyProvider';
 import texts from '../../../texts.json';
 import './MembersAccounts.css';
 import adria from '../../../Pictures/gif/Adria.gif';
@@ -100,8 +99,6 @@ class members extends Component {
         const { score } = this.props;
 
         localStorage.setItem('memberId', id)
-
-        // context.addPoints(score, 'instagram', 'one')
 
     }
 
