@@ -138,7 +138,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                                                         </WhatsappShareButton>
                                                                     </div>
                                                                     <div className="modal-footer">
-                                                                        <button type="button" className="btn btn-primary" data-dismiss="modal">
+                                                                        <button type="button" className="btn btn-primary end" data-dismiss="modal">
                                                                             {texts[language].doneText}
                                                                         </button>
                                                                     </div>
@@ -218,7 +218,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                         </div>
                                     </div>
                                     <div className="modal-footer">
-                                         <button type="button" className="btn btn-primary" data-dismiss="modal">{texts[language].doneText}</button>
+                                         <button type="button" className="btn btn-primary done" data-dismiss="modal">{texts[language].doneText}</button>
                                        
                                     </div>
                                 </div>

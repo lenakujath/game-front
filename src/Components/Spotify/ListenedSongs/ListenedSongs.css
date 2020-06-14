@@ -130,6 +130,7 @@ input {
 .modal-body {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .modal-title {
@@ -201,6 +202,18 @@ input {
         padding: 4px 10px;
         margin-top: 1.5vh;
         width: 80%;
+    }
+
+    .done {
+
+        width: 10vh;
+        margin-right: 20vh;
+    }
+
+    .end {
+
+        width: 10vh;
+        margin-right: 23vh;
     }
 
 
