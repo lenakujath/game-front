@@ -31,7 +31,7 @@ const SocialMedia = ({ language }) => (
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.youtube.com/lapegatinatv" target="_blank" rel="noreferrer noopener">
+                    <a href="https://www.youtube.com/lapegatina" target="_blank" rel="noreferrer noopener">
                         <img className="social-icon" src={youtube} alt="youtube" />
                     </a>
                 </li>
