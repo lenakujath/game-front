@@ -77,7 +77,8 @@ const SignUp = ({ language }) => {
             //change data 
             body: JSON.stringify({ 
                 
-            "username": username,
+            "pre_username": username,         
+             'username' : username.toLowerCase(),
             "email": email,
             "password": password,
             "roles": ["user"]

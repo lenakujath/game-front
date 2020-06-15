@@ -22,8 +22,12 @@ const Login = (props) => {
     const logUser = (e) => {
         e.preventDefault();
         Api.logIn({
-            "username": username,             
+                 
+            "pre_username": username, 
+            'username' : username.toLowerCase(),
             "password": password,
+                    
+             
              }).then((resp) => {
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
