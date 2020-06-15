@@ -16,7 +16,7 @@ import '../Instagram.css';
 
 class InstagramRoundOne extends Component {
 
-    NUMBER_OF_ATTEMPTS = 8
+    NUMBER_OF_ATTEMPTS = 3
 
     OFICIAL_NUMBER_OF_ATTEMPTS = this.NUMBER_OF_ATTEMPTS - 1
 

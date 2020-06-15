@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Api from '../../../../Api';
 import texts from '../../../../texts.json';
 import Login from './Login';
 import { MyContext } from '../../../../context/MyProvider';
@@ -6,7 +7,7 @@ import { red } from 'color-name';
 
 const SignUp = ({ language }) => {
 
-    console.log(texts[language]);
+
 
     const { logUserIntoContext } = React.useContext(MyContext);
     // const [users, updateUsers] = useState([]);
@@ -89,6 +90,7 @@ const SignUp = ({ language }) => {
                     setPosted(!posted);
                 }
                 if (res.status === 200){
+                    
                 await fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
                     method: 'POST',
                     headers: new Headers({
@@ -103,13 +105,34 @@ const SignUp = ({ language }) => {
                     console.log('response', res);
                     if (res.status === 200) {
                         // alert('logged in!');
+                        
                         closeModal();
                         console.log('logggggged innnn');
                         return res.json();
                     }
                 }).then((data) => {
-                    console.log('data you pass to the context', data);
-                    logUserIntoContext(data);
+                    Api.setSessionToken(data.accessToken)
+                    Api.setPoints({
+                        'spotify_round_one':0,
+                        'spotify_round_two':0,
+                        'instagram_round_one':0,
+                        'instagram_round_two':0,
+                        'youtube_round_one':0,
+                        'youtube_round_two':0,
+                        'total_app_points': 0,
+                        'user':data.id
+                    }).then((resp)=>{
+                        console.log(resp)
+                        Api.getPoints(data.id).then((resp2)=>{
+                            let user = {...data, ...resp2['data']};
+                            logUserIntoContext(user);
+                            console.log('data you pass to the context', user);
+                        })   
+                    })
+                   
+                    
+                    
+                    //logUserIntoContext(data);
                 });
                 }
                 return res.json();
