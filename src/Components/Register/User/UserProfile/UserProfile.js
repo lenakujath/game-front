@@ -6,37 +6,38 @@ import  profile  from '../../../../Pictures/user.png'
 
 const UserPofile = () => {
 
-    const { logUserIntoContext } = React.useContext(MyContext);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const { state, logUserIntoContext } = React.useContext(MyContext);
+    console.log(state)
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
 
-    const logUser = (e) => {
-        e.preventDefault();
-        console.log('username and password', username, password);
-        fetch('//localhost:5000/log', {
-            method: 'POST',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-            }),
-            body: JSON.stringify({ username, password }),
-        }).then((res) => {
-            console.log('response', res);
-            // if (res.status === 404) {
-            //    alert('invalid username or password')
-            // }
-            if (res.status === 200) {
-                alert('logged in!');
-                console.log('logggggged innnn');
-                return res.json();
-            }
-        }).then((data) => {
-            console.log('data you pass to the context', data);
-            // data.username && logUserIntoContext(data)
-            logUserIntoContext(data);
-            setUsername('');
-            setPassword('');
-        });
-    };
+    // const logUser = (e) => {
+    //     e.preventDefault();
+    //     console.log('username and password', username, password);
+    //     fetch('//localhost:5000/log', {
+    //         method: 'POST',
+    //         headers: new Headers({
+    //             'Content-Type': 'application/json',
+    //         }),
+    //         body: JSON.stringify({ username, password }),
+    //     }).then((res) => {
+    //         console.log('response', res);
+    //         // if (res.status === 404) {
+    //         //    alert('invalid username or password')
+    //         // }
+    //         if (res.status === 200) {
+    //             alert('logged in!');
+    //             console.log('logggggged innnn');
+    //             return res.json();
+    //         }
+    //     }).then((data) => {
+    //         console.log('data you pass to the context', data);
+    //         // data.username && logUserIntoContext(data)
+    //         logUserIntoContext(data);
+    //         setUsername('');
+    //         setPassword('');
+    //     });
+    // };
 
 
     return (
@@ -70,12 +71,12 @@ const UserPofile = () => {
                             </h6>
                             <p>
                                 Ronda 1:
-                                {context.state.points_spotify_round_one}
+                                {context.state.spotify_round_one}
                             </p>
 
                             <p>
                                 Ronda 2:
-                                {context.state.points_spotify_round_two}
+                                {context.state.spotify_round_two}
                             </p>
                         </div>
                         <div className="music-points-display" >
@@ -84,11 +85,11 @@ const UserPofile = () => {
                             </h6>
                             <p>
                                 Ronda 1:
-                                {context.state.points_youtube_round_one}
+                                {context.state.youtube_round_one}
                             </p>
                             <p>
                                 Ronda 2:
-                                {context.state.points_youtube_round_two}
+                                {context.state.youtube_round_two}
                             </p>
                         </div>
                         <div className='img-points-display'>
@@ -97,11 +98,11 @@ const UserPofile = () => {
                             </h6>
                             <p>
                                 Ronda 1:
-                                {context.state.points_instagram_round_one}
+                                {context.state.instagram_round_one}
                             </p>
                             <p>
                                 Ronda 2:
-                                {context.state.points_instagram_round_two}
+                                {context.state.instagram_round_two}
                             </p>
                         </div>
                         {/* <div>

@@ -48,6 +48,7 @@ render() {
                                 path="/"
                                 render={(props) => (
                                     <div>
+                                    
                                         <Navbar language={context.state.language} pagein="home" onChangeLanguage={this.setLanguage} />
                                         <Home language={selectedLanguage} {...props} />
                                         <div className="social-media-follow-buttons">

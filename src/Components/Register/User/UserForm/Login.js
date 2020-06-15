@@ -3,13 +3,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-fragments */
 import React, { Fragment, useState } from 'react';
+import Api from '../../../../Api';
 import { MyContext } from '../../../../context/MyProvider';
 // import '../UserProfile/Userprofile.css';
 
 
 const Login = (props) => {
 
-    const { logUserIntoContext, addPoints } = React.useContext(MyContext);
+    const { logUserIntoContext, addPoints, state } = React.useContext(MyContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -20,34 +21,74 @@ const Login = (props) => {
 
     const logUser = (e) => {
         e.preventDefault();
-        console.log('username and password', username, password);
-        fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
-            method: 'POST',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-            }),
-            body: JSON.stringify({
+        Api.logIn({
+            "username": username,             
+            "password": password,
+             }).then((resp) => {
+                Api.setSessionToken(resp.data.accessToken)
+                closeModal()
+                Api.getPoints(resp.data.id).then((resp2)=>{
+                    let user = {...resp['data'], ...resp2['data']};
+                    logUserIntoContext(user);
+                })   
+             },(err)=>{
 
-                "username": username,             
-                "password": password,
+             })
+
+
+        // fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
+        //     method: 'POST',
+        //     headers: new Headers({
+        //         'Content-Type': 'application/json',
+        //     }),
+        //     body: JSON.stringify({
+
+        //         "username": username,             
+        //         "password": password,
                                
-                 }),
+        //          }),
                  
-        }).then((res) => {
-            console.log('response', res);
-            if (res.status === 200) {
-                // alert('logged in!');
-                closeModal();
-                console.log('logggggged innnn');
-                return res.json();
-            }
-        }).then((data) => {
-            console.log('data you pass to the context', data);
-            logUserIntoContext(data);
-        });
-        if (props.pageIn === 'between-rounds') {
-            addPoints(props.score, 'spotify', 'one');
-        }
+        // }).then((res) => {
+        //     console.log('response', res);
+        //     if (res.status === 200) {
+        //         // alert('logged in!');
+        //         closeModal()
+        //         console.log('logggggged innnn');
+        //         return res.json();
+        //     }
+        // }).then((data) => {
+        //     console.log('data you pass to the context', data);
+        //     logUserIntoContext(data);
+
+        //     fetch('http://authnodejstest.herokuapp.com/api/user/getpoints', {
+        //         method: 'get',
+        //         headers: new Headers({
+        //             'Content-Type': 'application/json',
+        //             'x-access-token': data.accessToken
+        //         }),
+        //         params: {
+
+        //             "id": data.id,             
+                                                       
+        //              },
+        //     }).then((res2) => {
+        //         if (res2.status === 200) {
+        //             console.log('recupero Datos de puntos')
+        //             return res2.json();
+        //         }
+        //     }).then((data)=> {
+        //         console.log(data)
+
+        //     })
+            
+        // });
+
+        
+        // console.log(props)
+        // if (props.pageIn === 'between-rounds') {
+        //     console.log('between-rounds')
+        //     addPoints(props.score, 'spotify', 'one');
+        // }
     };
 
     return (

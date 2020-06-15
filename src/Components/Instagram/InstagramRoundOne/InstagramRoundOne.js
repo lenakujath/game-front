@@ -8,7 +8,7 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Loading from '../../Utils/Loading/Loading';
 import Register from '../../Register/Register';
-import { MyContext } from '../../../context/MyProvider';
+import MyProvider, {  MyContext } from '../../../context/MyProvider';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import Navbar from '../../Navbar/Navbar';
 import '../Instagram.css';
@@ -47,6 +47,7 @@ class InstagramRoundOne extends Component {
     numberOfPosts = '275';
 
     componentDidMount() {
+        console.log(this.context)
         fetch(`https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables=
         {"id":"${this.profileId}","first":${this.numberOfPosts}}`)
             .then((res) => res.json())
@@ -105,6 +106,9 @@ class InstagramRoundOne extends Component {
 
         // if(this.attempts === this.apiResultLength) {
         if (this.attempts === this.NUMBER_OF_ATTEMPTS) {
+            //alert('guardar datos round 1')
+//            console.log('context State',state)
+          
             this.setState({
                 gameStatus: 'gameOver',
             });
@@ -194,6 +198,7 @@ class InstagramRoundOne extends Component {
         }
 
         if (gameStatus === 'gameOver') {
+            
             return (
                 <MyContext.Consumer>
                     {(context) => (
