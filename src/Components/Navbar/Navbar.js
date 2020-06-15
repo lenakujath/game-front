@@ -111,10 +111,11 @@ class Navbar extends React.Component {
                                             </div>
                                             <div className="nav-username">
                                                 <MyContext.Consumer>
-                                                    {(context) => (
+                                                    {(context) => (   
                                                         context.state.username
                                                             ? (
                                                                 <div className="user-points">
+                                                                
                                                                      <p>
                                                                         {context.state.username}
                                                                         {' '}

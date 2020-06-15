@@ -11,12 +11,10 @@ import Register from '../Register/Register';
 
 const GameEnded = ({ score, currentGame, language, points }) => {
 
-
     const { addPoints } = useContext(MyContext);
 
     const addPointsToContext = () => {
         console.log('score i current game', score, currentGame)
-
         addPoints(score || points, currentGame, 'two')
     }
 

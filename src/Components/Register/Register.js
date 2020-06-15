@@ -90,7 +90,7 @@ class Register extends Component {
     componentDidMount() {
 
         const { currentGame } = this.props;
-
+        console.log('Register.js',currentGame)
         if (currentGame === 'spotify') {
             this.getSpotifyAlbums();
         }
@@ -106,7 +106,7 @@ class Register extends Component {
 
     render() {
         const { currentGame, score, language } = this.props;
-
+        
         const { link, albums } = this.state;
 
         if (currentGame === 'spotify') {
