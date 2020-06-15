@@ -199,7 +199,7 @@ class InstagramRoundTwo extends Component {
             return (
                 <div>
                     <Navbar addedClass="fixTop" />
-                    <GameEnded points={this.counter * 2653} language={language} currentGame="instagram" />
+                    <GameEnded points={this.counter * 20} language={language} currentGame="instagram" />
                 </div>
             );
         }

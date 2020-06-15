@@ -159,7 +159,7 @@ class spotifyRoundTwo extends React.Component {
         this.setState({
             hideResults: false,
             correctAnswers: this.coincidence ? correctAnswers + 1 : correctAnswers,
-            score: this.coincidence ? score + 167 : score,
+            score: this.coincidence ? score + 20 : score,
         });
 
         this.coincidence && this.showConfetti();

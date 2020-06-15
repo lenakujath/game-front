@@ -165,7 +165,7 @@ class SpotifyRoundOne extends React.Component {
         this.setState({
             hideResults: false,
             correctAnswers: this.coincidence ? (correctAnswers + 1) : correctAnswers,
-            score: this.coincidence ? (score + 167) : score,
+            score: this.coincidence ? (score + 10) : score,
         });
 
         this.coincidence && this.showConfetti();
@@ -344,7 +344,7 @@ class SpotifyRoundOne extends React.Component {
                                         </p>
                                         <br />
                                         {/* <p className={this.answerCountShow ? 'show' : 'hide'}>
-                                            {texts[language].pointsText}
+                                            {texts[language].Text}
                                             {score}
                                         </p> */}
                                         <hr />

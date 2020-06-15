@@ -83,7 +83,7 @@ class QuizYT extends Component {
        else if (displayedAnswer === correctAnswer) {
 
             this.setState({
-                points: points + 357,              
+                points: points + 10,              
                 display: 'timer',
                 clicked: true
             });
