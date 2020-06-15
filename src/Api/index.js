@@ -28,6 +28,11 @@ return instance.defaults.headers.common['x-access-token'];
 },
 
 
+
+signUp : function(user){
+    return instance.post('auth/signup/',user);
+},
+
 logIn : function(credentials){
     return instance.post('auth/signin/',credentials);
 },

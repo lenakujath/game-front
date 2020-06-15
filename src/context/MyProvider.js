@@ -40,7 +40,7 @@ export default (props) => {
         console.log('STATE', state)
     }
 
-    const updateTotalPoints = () => {
+    const updateTotalPoints = (newState) => {
         const keysArray = [
             'spotify_round_one',
             'spotify_round_two',
@@ -53,7 +53,7 @@ export default (props) => {
         let total = 0;
 
         keysArray.forEach((key) => {
-            total += parseInt(state[key]);
+            total += parseInt(newState[key]);
         });
 
         changeState({
@@ -78,32 +78,33 @@ export default (props) => {
                 console.log(roundIn)
                 console.log(`${gameName}_round_${roundIn}`)
                 console.log(state[`${gameName}_round_${roundIn}`])
-                if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}`]))) {
+                let newState = {}
+                if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}`])) || (state[`${gameName}_round_${roundIn}`] == undefined)) {
                     let index = `${gameName}_round_${roundIn}`;
                     console.log('roundIn',index)
-                    changeState({
+                    newState =  {
                         ...state,
                         [index]: newPoints,
-                    } );
-                    
-                }
+                    } ;
+                    changeState(newState);
                 
-                console.log(state)
-                updateTotalPoints()
-                console.log(state)
-                console.log(newPoints)
-                Api.setPoints({
-                    'spotify_round_one':state.spotify_round_one,
-                    'spotify_round_two':state.spotify_round_two,
-                    'instagram_round_one':state.instagram_round_one,
-                    'instagram_round_two':state.instagram_round_two,
-                    'youtube_round_one':state.youtube_round_one,
-                    'youtube_round_two':state.youtube_round_two,
-                    'total_app_points': state.total_app_points,
-                    'user':state.user
-                }).then((resp)=>{
-                    console.log(resp)
-                })
+                    console.log(state)
+                    updateTotalPoints(newState)
+                    console.log(newState)
+                    console.log(newPoints)
+                    Api.setPoints({
+                        'spotify_round_one':newState.spotify_round_one,
+                        'spotify_round_two':newState.spotify_round_two,
+                        'instagram_round_one':newState.instagram_round_one,
+                        'instagram_round_two':newState.instagram_round_two,
+                        'youtube_round_one':newState.youtube_round_one,
+                        'youtube_round_two':newState.youtube_round_two,
+                        'total_app_points': newState.total_app_points,
+                        'user':newState.user
+                    }).then((resp)=>{
+                        console.log(resp)
+                    })
+                }
             },
 
             clearUser: () => changeState({
@@ -126,7 +127,7 @@ export default (props) => {
             logUserIntoContext: (data) => changeState({
                 accessToken: data.accessToken,
                 username: data.username,
-                user:data.user,
+                user:data.id,
                 email: data.email,
                 spotify_round_one: data.spotify_round_one,
                 spotify_round_two: data.spotify_round_two,
