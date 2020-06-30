@@ -10,6 +10,7 @@ import spotify from './icons/icon_2019_Spotify.svg';
 import tiktok from './icons/icon_2019_TikTok.svg';
 
 const SocialMedia = ({ language }) => (
+    
     <div className="social-media-follow-footer">
         {/* <p>{texts[language].followUs}</p> */}
         <nav>
@@ -46,7 +47,6 @@ const SocialMedia = ({ language }) => (
                 </li>
             </ul>
         </nav>
-        <Link to="/team">
             <p
                 className="made-by no-text-decoration"
             >
@@ -54,7 +54,7 @@ const SocialMedia = ({ language }) => (
                 <span>❤</span>
                 {texts[language].byText}
             </p>
-        </Link>
+        
     </div>
 );
 
