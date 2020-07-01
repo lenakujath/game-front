@@ -5,18 +5,15 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import texts from '../../texts.json';
 import './Navbar.css';
-
 import homebtn from '../../Pictures/home45.png';
 import catalan from '../../Pictures/bandera_catalan_small.png';
 import spanish from '../../Pictures/bandera_spanish_small.png';
 import english from '../../Pictures/bandera_english_small.png';
 import french from '../../Pictures/bandera_french_small.png';
-
 import userbtn from '../../Pictures/user.png';
 
 const languagesAvailable = [
@@ -115,11 +112,12 @@ class Navbar extends React.Component {
                                                         context.state.username
                                                             ? (
                                                                 <div className="user-points">
-                                                                
+                                                                   <Link to="/user">
                                                                      <p>
                                                                         {context.state.username}
                                                                         {' '}
                                                                     </p>
+                                                                    </Link>
                                                                     {/* <p>
                                                                         {context.state.total_app_points || 0}
                                                                         {' '}

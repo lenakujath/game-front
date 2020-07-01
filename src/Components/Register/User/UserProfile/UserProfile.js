@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { MyContext } from '../../../../context/MyProvider';
 import './UserProfile.css';
-
 import  profile  from '../../../../Pictures/user.png'
+//import texts from '../../texts.json';
 
 const UserPofile = () => {
 
@@ -49,7 +49,9 @@ const UserPofile = () => {
                         <div className='myprofile-title'>
                         <img src={profile} alt="profile icon" className= 'profile-icon-user'/>
                         <h1>Mi Perfil</h1>
+                        
                         </div>
+                        <a onClick={() => { context.clearUser(); console.log('clicked'); }}>Salir</a>
                         <hr />
                         <h6>
                             Nombre:
