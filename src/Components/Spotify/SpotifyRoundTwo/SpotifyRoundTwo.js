@@ -16,6 +16,7 @@ import GameEnded from '../../GameEnded/GameEnded';
 import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
+import Loading from '../../Utils/Loading/Loading';
 
 class spotifyRoundTwo extends React.Component {
     // We have the object coming from the API call, here
@@ -44,6 +45,7 @@ class spotifyRoundTwo extends React.Component {
             uri: '',
         },
 
+        status: 'choosing',
         hideResults: true,
         correctAnswers: 0,
         score: 0,
@@ -55,7 +57,7 @@ class spotifyRoundTwo extends React.Component {
         noTracks: true,
         playlistName: 'Mis favoritos',
         giveMeConfetti: false,
-        selectedAlbum: this.props.location.state.selectedAlbum,
+        selectedAlbum: localStorage.AlbumId,
     };
 
     // API call to get the playlist data.
@@ -68,6 +70,11 @@ class spotifyRoundTwo extends React.Component {
         this.spotifyObject = await Spotify.getSongsFromAlbum(selectedAlbumID);
         await this.filterRightSongsFromSpotifyObject();
         this.setNewRandomSong();
+
+        this.setState({
+
+            status: 'playing'
+        })
     }
 
     /**
@@ -268,6 +275,15 @@ class spotifyRoundTwo extends React.Component {
         });
     };
 
+    setSelecteAlbumId = (AlbumId) => {
+
+        this.setState({
+            gameStatus: 'loading',
+            selectedAlbum: AlbumId
+        });
+    
+    }
+
     render() {
         const {
             giveMeConfetti,
@@ -276,12 +292,28 @@ class spotifyRoundTwo extends React.Component {
             hideResults,
             songNames,
             currentAttempt,
+            status
         } = this.state;
 
         console.log('paco', 'render again spotifyRound 2')
 
         const { language } = this.props;
 
+        if (status !== 'playing') {
+            
+            return (
+                <div className="loading">
+                    <Loading />
+                </div>
+            );
+        }
+
+        if (status === 'choosing') {
+
+            {this.setSelecteAlbumId(localStorage.AlbumId)}
+        }
+
+        if (status === 'playing')  {
         return (
             <section>
                 {currentAttempt <= this.NUMBER_OF_SONGS_TO_PLAY_WITH ? (
@@ -348,6 +380,7 @@ class spotifyRoundTwo extends React.Component {
                 )}
             </section>
         );
+      }
     }
 }
 

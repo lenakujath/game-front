@@ -13,9 +13,11 @@ import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
 
 
 class Register extends Component {
+    
     state = {
         
         link: 'hide',
+        loading: true,
         albums: [],
         selectedAlbum: '',
         videoData: [],
@@ -71,6 +73,7 @@ class Register extends Component {
 
     }
 
+
     showLink = (context, newPoints, gameName, roundIn) => {
 
         context.addPoints(newPoints, gameName, roundIn);
@@ -79,6 +82,14 @@ class Register extends Component {
 
             link: 'screen',
         });
+    }
+
+    setSelectedAlbumId = (id) => {
+
+        //const { score } = this.props;
+
+        localStorage.setItem('AlbumId', id)
+
     }
 
     // setSelectedMemberId = (id) => {
@@ -125,10 +136,23 @@ class Register extends Component {
                                     </div>
                                     <div className="allAlbumsDiv">
                                         {albums.map((albumObject) => (
-                                            <button
+                                             
+                                                    
+                                <Link to={{ pathname: '/spotifyRoundTwo' }}> 
+                                     <button
                                                 type="button"
                                                 className="buttonAlbum"
-                                                onClick={(event) => this.setState({ selectedAlbum: event.target.alt })}
+                                                onClick={  (event) => {
+                                                                     
+                                                                        this.showLink(context,score, 'spotify', 'one');
+                                                                        this.setSelectedAlbumId(event.target.alt)
+                                                                   
+                                                                        this.setState({ 
+
+                                                                         selectedAlbum: event.target.alt                                                                   
+                                                                        })
+                                                                    }      
+                                                                    }
                                             >
                                                 <img
                                                     src={albumObject.images[0].url}
@@ -136,9 +160,11 @@ class Register extends Component {
                                                     className="blackBorder album"
                                                 />
                                             </button>
+                                        </Link> 
                                         ))}
                                     </div>
-                                    <Link to={{ pathname: '/spotifyRoundTwo', state: { selectedAlbum: this.state.selectedAlbum } }}>
+                                    {/* 
+                                     { <Link to={{ pathname: '/spotifyRoundTwo', state: { selectedAlbum: this.state.selectedAlbum } }}>
                                             <button
                                                 className="button1"
                                                 type="button"
@@ -146,7 +172,7 @@ class Register extends Component {
                                             >
                                                 Start
                                             </button>
-                                        </Link>
+                                        </Link> } */}
                                 </div>
                             </div>
                             <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
