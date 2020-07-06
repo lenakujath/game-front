@@ -86,18 +86,12 @@ class Register extends Component {
 
     setSelectedAlbumId = (id) => {
 
-        //const { score } = this.props;
 
         localStorage.setItem('AlbumId', id)
 
     }
 
-    // setSelectedMemberId = (id) => {
-    //     this.setState ({
-    //         setSelectedMemberId: id,
-    //     })
-    //     localStorage.setItem('memberId', id)
-    // }
+  
 
     componentDidMount() {
 

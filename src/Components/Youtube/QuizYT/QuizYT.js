@@ -49,6 +49,7 @@ class QuizYT extends Component {
         }
     }
 
+
     componentDidUpdate  =  (prevState) => {
             
         if (prevState.wrong !== this.state.wrong) {
@@ -71,13 +72,20 @@ class QuizYT extends Component {
         const displayedAnswer =   e.target.value;
 
         if (displayedAnswer !== correctAnswer) {
-
-                
+               
             this.setState({
 
-             wrong: 'the-yt-quiz'
-
-          })        
+                wrong: 'the-yt-quiz',
+                points: points + 0,              
+                display: 'timer',
+                clicked: true,
+                giveMeConfetti: false
+          })    
+       
+          setTimeout(() => {
+            this.toNext();
+        },  5000);
+        localStorage.setItem ('yt_points_1', this.state.points)
         }
          
        else if (displayedAnswer === correctAnswer) {
