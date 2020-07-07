@@ -96,6 +96,10 @@ class Rounds extends React.Component {
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
                     
                     <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
+
+
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
                 </div>
                 <div className="home-play-buttons">
