@@ -7,7 +7,7 @@ import { red } from 'color-name';
 
 const SignUp = ({ language }) => {
 
-
+   console.log(localStorage.language);
 
     const { logUserIntoContext } = React.useContext(MyContext);
     // const [users, updateUsers] = useState([]);
@@ -156,8 +156,8 @@ const SignUp = ({ language }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     name="username"
-                    placeholder='Username'
-                    // placeholder={texts[language].username}
+                   // placeholder='Username'
+                     placeholder={texts[language].username}
                     type="text"
                     className="input"
                     id="user_name"
@@ -167,8 +167,8 @@ const SignUp = ({ language }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     name="mail"
-                    placeholder="e-mail"
-                    // placeholder={texts[language].mail}
+                   // placeholder="e-mail"
+                    placeholder={texts[language].mail}
                     type="email"
                     className="input"
                     id="user_email"

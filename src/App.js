@@ -145,7 +145,7 @@ render() {
                                 path="/members"
                                 render={(props) => (
                                     <div>
-                                        <Navbar />
+                                        <Navbar {...props} language={selectedLanguage} />
                                         <MembersAccounts language={selectedLanguage} {...props} />
                                     </div>
                                 )}
@@ -155,8 +155,8 @@ render() {
                                 path="/user"
                                 render={(props) => (
                                     <div>
-                                        <Navbar />
-                                        <User language={selectedLanguage} {...props} />
+                                        <Navbar {...props} language={selectedLanguage}/>
+                                        <User {...props} language={selectedLanguage}  />
                                     </div>
                                 )}
                             />

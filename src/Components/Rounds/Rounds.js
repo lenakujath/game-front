@@ -8,9 +8,6 @@ import '../Home/Home.css';
 import spotifyLogo from '../../Pictures/spotify-32.jpg';
 import instagramLogo from '../../Pictures/instagram-6-32.jpg';
 import youtubeLogo from '../../Pictures/play-4-32.jpg';
-//import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-import '../../../node_modules/font-awesome/css/font-awesome.min.css';
-
 import { MyContext } from '../../context/MyProvider';
 
 
@@ -95,12 +92,14 @@ class Rounds extends React.Component {
                         {/* <h4>{texts[language].instructions}</h4> */}
                     </div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyRoundTwo"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    
                     <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
                 </div>
                 <div className="home-play-buttons">
-                    <button type="button" className={button} onClick={this.startSpotify}
-                    >
+                    <button type="button" className={button} onClick={this.startSpotify}>
                         <img className="home-btn-image" src={spotifyLogo} alt="music" />
                         {texts[language].spotifyPlayWithButton}
                     </button>

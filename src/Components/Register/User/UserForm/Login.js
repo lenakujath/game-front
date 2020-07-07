@@ -6,7 +6,10 @@ import React, { Fragment, useState } from 'react';
 import Api from '../../../../Api';
 import { MyContext } from '../../../../context/MyProvider';
 // import '../UserProfile/Userprofile.css';
+//import texts from '../../../texts.json';
 
+//steps to follow: import JSON
+//
 
 const Login = (props) => {
 
