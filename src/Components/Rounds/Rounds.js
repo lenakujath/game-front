@@ -89,19 +89,21 @@ class Rounds extends React.Component {
                         )
                         : null
                     }
-                        {/* <h4>{texts[language].instructions}</h4> */}
+                        {/*insert register component*/ }
                     </div>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyRoundTwo"><button className="button1" type="button">{texts[language].startText}</button></Link>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyRoundTwo"><button className="button1" type="button">{texts[language].startRound2Spotify}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
+                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
+                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
 
-
-                    <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startText}</button></Link>
+                    <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
+                    <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundtwo"><button className="button1" type="button">{texts[language].startRound2Instagram}</button></Link>
+                    <Link className={spotify || youtube ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
                 </div>
+                
                 <div className="home-play-buttons">
                     <button type="button" className={button} onClick={this.startSpotify}>
                         <img className="home-btn-image" src={spotifyLogo} alt="music" />

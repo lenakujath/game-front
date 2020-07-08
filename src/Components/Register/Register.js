@@ -10,6 +10,7 @@ import Spotify from '../Utils/Spotify';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
 import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
+import Rounds from '../Rounds/Rounds';
 
 
 class Register extends Component {
@@ -157,21 +158,12 @@ class Register extends Component {
                                         </Link> 
                                         ))}
                                     </div>
-                                    {/* 
-                                     { <Link to={{ pathname: '/spotifyRoundTwo', state: { selectedAlbum: this.state.selectedAlbum } }}>
-                                            <button
-                                                className="button1"
-                                                type="button"
-                                                onClick={() => this.showLink(context, score, 'spotify', 'one')}
-                                            >
-                                                Start
-                                            </button>
-                                        </Link> } */}
                                 </div>
                             </div>
                             <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {texts[language].keepPointsPlayMoreText}
                             </button>
+                            <Rounds language={language}/>
                         </div>
                     )}
                 </MyContext.Consumer>
@@ -195,13 +187,6 @@ class Register extends Component {
                                     <Link to={{ pathname: '/youtuberoundtwo', state: { videoId: this.state.videoId,
                                         data:this.state.data} }}
                                     >
-                                        {/* <button
-                                            className="button1"
-                                            type="button"
-                                            onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}
-                                        >
-                                            Start
-                                        </button> */}
                                     </Link>
                                 </div>
                             </div>

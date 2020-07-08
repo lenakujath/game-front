@@ -15,8 +15,12 @@ padding: 2em;
 }
 .myprofile-title{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items:flex-start;
+    
+}.myprofile-h6{
+    display: inline-block;
+    padding-left: 1vh;
 }
 .game-points-by-category{
 display: flex;

@@ -9,11 +9,13 @@ class User extends Component {
     }
 
     render() {
+
+        const { language } = this.props;
         return (
             <div>
                 {/* <h6>Score:{this.props.location.state.score}</h6> */}
                 <div className="user-profile-c">
-                    <UserPofile />
+                    <UserPofile language={language} />
                 </div>
                 <div>
                     {/* <UserForm /> */}

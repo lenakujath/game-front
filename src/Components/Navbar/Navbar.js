@@ -16,6 +16,8 @@ import english from '../../Pictures/bandera_english_small.png';
 import french from '../../Pictures/bandera_french_small.png';
 import userbtn from '../../Pictures/user.png';
 
+//maybe work with a "componentdidupdate" to make the change in languages notice
+
 const languagesAvailable = [
     { language: 'catalan', flag: catalan },
     { language: 'spanish', flag: spanish },
