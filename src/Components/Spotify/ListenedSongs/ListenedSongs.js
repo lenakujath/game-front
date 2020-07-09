@@ -21,7 +21,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
         const { state: { username } } = context;
 
         if (username) {
-            // addPoints(score, 'spotify', 'one');
+           
             return (
                 <Register score={score} currentGame="spotify" language={language} />
             );
