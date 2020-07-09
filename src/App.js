@@ -41,6 +41,8 @@ setLanguage = (lang, flag) => {
     localStorage.setItem('flag', flag);
 }
 
+
+
 render() {
 
     const { selectedLanguage } = this.state;

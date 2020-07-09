@@ -6,7 +6,7 @@ import React, { Fragment, useState } from 'react';
 import Api from '../../../../Api';
 import { MyContext } from '../../../../context/MyProvider';
 // import '../UserProfile/Userprofile.css';
-//import texts from '../../../texts.json';
+import texts from '../../../../texts.json';
 
 //steps to follow: import JSON
 //
@@ -109,7 +109,7 @@ const Login = (props) => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             name="username"
-                            placeholder="usuario"
+                            placeholder={texts[localStorage.language].username}
                             type="text"
                             className="input"
                             id="user_login"
@@ -119,17 +119,12 @@ const Login = (props) => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             name="password"
-                            placeholder="contraseña"
+                            placeholder={texts[localStorage.language].password}
                             type="password"
                             className="input"
                             id="user_pass"
                         />
-                        {/* <label
-                                    className="remember"
-                                    htmlFor="remember_me"
-                                >
-                                    Remember me
-                                </label> */}
+                      
                         <button className="form-btn" type="submit">Entra!</button>
                     </form>
                 </div>

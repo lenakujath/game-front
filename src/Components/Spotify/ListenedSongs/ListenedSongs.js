@@ -234,9 +234,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                 <div />
                             )
                         }
-                        {/* {roundfrom === 'two'
-                            ? <GameEnded points={score} language={language} currentGame="spotify" />
-                            : null} */}
+                       
                     </div>
                 </>
             )}

@@ -7,7 +7,7 @@ import { red } from 'color-name';
 
 const SignUp = ({ language }) => {
 
-   console.log(localStorage.language);
+   
 
     const { logUserIntoContext } = React.useContext(MyContext);
     // const [users, updateUsers] = useState([]);
@@ -156,8 +156,7 @@ const SignUp = ({ language }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     name="username"
-                   // placeholder='Username'
-                     placeholder={texts[language].username}
+                     placeholder={texts[localStorage.language].username}
                     type="text"
                     className="input"
                     id="user_name"
@@ -168,7 +167,7 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     name="mail"
                    // placeholder="e-mail"
-                    placeholder={texts[language].mail}
+                    placeholder={texts[localStorage.language].mail}
                     type="email"
                     className="input"
                     id="user_email"
@@ -178,8 +177,8 @@ const SignUp = ({ language }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     name="password"
-                    placeholder='password'
-                    // placeholder={texts[language].password}
+                    
+                    placeholder={texts[localStorage.language].password}
                     type="password"
                     className="input"
                     id="user_pass"
@@ -188,16 +187,15 @@ const SignUp = ({ language }) => {
                     value={repeatedPassword}
                     onChange={(e) => setRepeatedPassword(e.target.value)}
                     name="repeatedPassword"
-                    placeholder='Reingresar password'
-                    // placeholder={texts[language].password}
+                    
+                    placeholder={texts[localStorage.language].repeatPassword}
                     type="password"
                     className="input"
                     id="user_repeated_pass"
                 />
                 <br />
-                <button className="form-btn" type="submit">
-                    Regístrate
-                    {/* {texts[language].register}  */}
+                <button className="form-btn" type="submit">                  
+                     {texts[localStorage.language].register} 
                 </button>
             </form>
             <ul>
