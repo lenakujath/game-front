@@ -79,6 +79,8 @@ render() {
                                 )}
                             />
 
+                         
+
                             <PrivateRoute
                                 authed={context.state.authed}
                                 path="/spotifyroundtwo"

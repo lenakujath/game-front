@@ -17,7 +17,8 @@ const Home = ({ language }) => (
             <img src={logo} alt="la pegatina logo" className="laPegatina" />
             <div className="home-play-buttons">
                 <Rounds
-                    language={language}
+                    language={language} spotifyButton={'btn-game'} youtubeButton={'btn-game'}
+                    instagramButton={'btn-game'}
                 />
             </div>
         </div>

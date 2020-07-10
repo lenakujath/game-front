@@ -9,6 +9,7 @@ import { MyContext } from '../../../context/MyProvider';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
+import Rounds from '../../Rounds/Rounds';
 
 class YoutubeRoundOne extends Component {
 
@@ -49,6 +50,8 @@ class YoutubeRoundOne extends Component {
                     {(context) => (
                         <div>
                             <Navbar addedClass="fixTop" />
+                            <Rounds language={language} spotifyButton={'btn-game'}  youtubeButton={'hideGame'}
+                                    instagramButton={'btn-game'}/> 
                             <div className="instagram-game-over youtube-game-over">
                                 <h3>{`Has hecho ${localStorage.yt_points_1} puntos`}</h3>
                                 {/* <button className='navbar-btn' onClick={this.restartYoutube}>Vuelve a jugar</button> */}
@@ -57,6 +60,7 @@ class YoutubeRoundOne extends Component {
                                     /* <Link to="youtuberoundtwo"><button className = 'navbar-btn' type="button" onClick={() => context.addPoints(this.counter)}>Juega una segunda ronda</button></Link> */
                                     : <UserForm language={language} />}
                             </div>
+                           
                             <div className="social-media-follow-buttons">
                                 <SocialMedia
                                     language={language}

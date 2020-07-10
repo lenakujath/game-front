@@ -10,7 +10,8 @@ import Spotify from '../Utils/Spotify';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
 import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
-import Rounds from '../Rounds/Rounds';
+//import Rounds from '../Rounds/Rounds';
+
 
 
 class Register extends Component {
@@ -163,7 +164,7 @@ class Register extends Component {
                             <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {texts[language].keepPointsPlayMoreText}
                             </button>
-                            <Rounds language={language}/>
+                          {/* {  <Rounds language={language}/>} */}
                         </div>
                     )}
                 </MyContext.Consumer>

@@ -11,6 +11,7 @@ import Register from '../../Register/Register';
 import MyProvider, {  MyContext } from '../../../context/MyProvider';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import Navbar from '../../Navbar/Navbar';
+import Rounds from '../../Rounds/Rounds';
 import '../Instagram.css';
 
 
@@ -204,17 +205,22 @@ class InstagramRoundOne extends Component {
                     {(context) => (
                         <div>
                             <Navbar addedClass="fixTop" />
+                            <Rounds language={language} spotifyButton={'btn-game'} youtubeButton={'btn-game'}
+                                    instagramButton={'hideGame'}/> 
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
                                 {context.state.username
                                     ? <Register score={this.counter * 10} currentGame="instagram" language={language} />
                                     : <UserForm language={language} />}
                             </div>
+                           
                             <div className="social-media-follow-buttons">
                                 <SocialMedia
                                     language={language}
                                 />
                             </div>
+                            
+                          
                         </div>
                     )}
                 </MyContext.Consumer>

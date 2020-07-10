@@ -9,7 +9,8 @@ import spotifyLogo from '../../Pictures/spotify-32.jpg';
 import instagramLogo from '../../Pictures/instagram-6-32.jpg';
 import youtubeLogo from '../../Pictures/play-4-32.jpg';
 import { MyContext } from '../../context/MyProvider';
-
+import UserForm from '../Register/User/UserForm/UserForm';
+import Register from '../Register/Register';
 
 class Rounds extends React.Component {
 
@@ -22,12 +23,16 @@ class Rounds extends React.Component {
         instagram: false,
     }
 
+     
+
     startSpotify = () => {
 
         const spotStart = true;
         const start = 'screen';
 
         localStorage.setItem('savedState', JSON.stringify(this.context));
+
+        // localStorage.setItem('spotifyRound', true);
 
         this.setState({
             spotify: spotStart,
@@ -65,9 +70,41 @@ class Rounds extends React.Component {
 
         const { page, instagram, youtube, spotify, button } = this.state;
 
-        const { language } = this.props;
+        const { language, score } = this.props;
+
+        const loginComp = (context) => {
+
+            const { state: { username } } = context;
+    
+            if (username) {
+               
+                return (
+                    <Register score={score} currentGame="spotify" language={language} />
+                );
+            }
+    
+            return <UserForm language={language} score={score} gameIn="spotify" />;
+        };
+
+        const loginComp2 = (context) => {
+
+            const { state: { username } } = context;
+    
+            if (username) {
+               
+                return (
+                    // change style with props
+                    <Register score={score} currentGame="instagram" language={language} />
+                );
+            }
+    
+            return <UserForm language={language} score={score} gameIn="spotify" />;
+        };
 
         return (
+            <MyContext.Consumer>
+            {(context) => (
+                <>
             <div>
                 <div className={page}>
                     <div className="title">
@@ -92,7 +129,7 @@ class Rounds extends React.Component {
                         {/*insert register component*/ }
                     </div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyRoundTwo"><button className="button1" type="button">{texts[language].startRound2Spotify}</button></Link>
+                    <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     
                     <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
@@ -100,25 +137,28 @@ class Rounds extends React.Component {
                     <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
 
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
-                    <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundtwo"><button className="button1" type="button">{texts[language].startRound2Instagram}</button></Link>
+                    <div className={spotify || youtube ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
                 </div>
-                
+                {/* e.g. spotify true? --> spotify option in home tauschen */}
                 <div className="home-play-buttons">
-                    <button type="button" className={button} onClick={this.startSpotify}>
+                    <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
                         <img className="home-btn-image" src={spotifyLogo} alt="music" />
                         {texts[language].spotifyPlayWithButton}
                     </button>
-                    <button type="button" className={button} onClick={this.startYoutube}>
+                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
                         <img className="home-btn-image" src={youtubeLogo} alt="music" />
                         {texts[language].youtubePlayWithButton}
                     </button>
-                    <button type="button" className={button} onClick={this.startInsta}>
+                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
                         <img className="home-btn-image" src={instagramLogo} alt="music" />
                         {texts[language].instagramPlayWithButton}
                     </button>
                 </div>
             </div>
+            </>
+            )}
+        </MyContext.Consumer>
         );
     }
 }

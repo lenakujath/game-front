@@ -10,7 +10,7 @@ import './ListenedSongs.css';
 import UserForm from '../../Register/User/UserForm/UserForm';
 import Register from '../../Register/Register';
 import { MyContext } from '../../../context/MyProvider';
-//import GameEnded from '../../GameEnded/GameEnded';
+import Rounds from '../../Rounds/Rounds';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
 
@@ -29,6 +29,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
 
         return <UserForm language={language} score={score} gameIn="spotify" />;
     };
+
 
     return (
         <MyContext.Consumer>
@@ -234,7 +235,8 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                 <div />
                             )
                         }
-                       
+                         <Rounds language={language} spotifyButton={'hideGame'} instagramButton={'btn-game'}
+                                 youtubeButton={'btn-game'}/>
                     </div>
                 </>
             )}
