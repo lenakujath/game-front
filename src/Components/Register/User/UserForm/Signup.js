@@ -7,7 +7,7 @@ import { red } from 'color-name';
 
 const SignUp = ({ language }) => {
 
-   
+   console.log(localStorage)
 
     const { logUserIntoContext } = React.useContext(MyContext);
     // const [users, updateUsers] = useState([]);

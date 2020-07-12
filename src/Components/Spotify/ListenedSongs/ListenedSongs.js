@@ -23,7 +23,8 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
         if (username) {
            
             return (
-                <Register score={score} currentGame="spotify" language={language} />
+                <Register buttonStyle={'suma-puntos-button'} score={score} buttonText={texts[language].keepPointsPlayMoreText}
+                 currentGame="spotify" language={language} />
             );
         }
 

@@ -79,7 +79,7 @@ class Rounds extends React.Component {
             if (username) {
                
                 return (
-                    <Register score={score} currentGame="spotify" language={language} />
+                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Spotify} score={score} currentGame="spotify" language={language} />
                 );
             }
     
@@ -93,8 +93,8 @@ class Rounds extends React.Component {
             if (username) {
                
                 return (
-                    // change style with props
-                    <Register score={score} currentGame="instagram" language={language} />
+                    
+                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram} score={score} currentGame="instagram" language={language} />
                 );
             }
     

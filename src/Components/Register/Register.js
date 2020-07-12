@@ -161,10 +161,10 @@ class Register extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
-                                {texts[language].keepPointsPlayMoreText}
+                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
+                                {this.props.buttonText}
                             </button>
-                          {/* {  <Rounds language={language}/>} */}
+                          
                         </div>
                     )}
                 </MyContext.Consumer>
@@ -217,8 +217,8 @@ class Register extends Component {
                                 
                             </div>
                             <div>
-                                <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
-                                    {texts[language].keepPointsPlayMoreText}
+                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                                {this.props.buttonText}
                                 </button>
                             </div>
 

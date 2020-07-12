@@ -9,6 +9,8 @@ import './PlayerCountdown.css';
 // import texts from '../../../texts.json';
 import next2 from '../../../Pictures/next2.gif';
 
+//copy playmusicstartTimer in spotifyroundone add a set timeout like in "rendertime" for the case of the last question
+
 const SONG_TIMER_DURATION =  10;
 
 class PlayerCountdown extends Component {
@@ -19,6 +21,8 @@ class PlayerCountdown extends Component {
         isPlaying: false,
         uniqueKey: Date.now(),
     }
+
+    //
 
     countdownIsDisplayed = false
 

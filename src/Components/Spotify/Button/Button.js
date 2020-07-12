@@ -8,6 +8,9 @@ const Button = ({ printedSong, currentSong, onClick, showConfetti }) => {
 
     const isCorrect = printedSong === currentSong;
 
+  
+   
+
     const onClickHandler = () => {
 
         makeButtonClicked(true);

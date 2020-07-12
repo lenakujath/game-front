@@ -210,7 +210,7 @@ class InstagramRoundOne extends Component {
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
                                 {context.state.username
-                                    ? <Register score={this.counter * 10} currentGame="instagram" language={language} />
+                                    ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText} buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />
                                     : <UserForm language={language} />}
                             </div>
                            
