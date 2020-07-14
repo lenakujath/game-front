@@ -5,13 +5,12 @@ import texts from '../../texts.json';
 import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
-import spotifyLogo from '../../Pictures/spotify-32.jpg';
 import homebtn from '../../Pictures/home45.png';
-import instagramLogo from '../../Pictures/instagram-6-32.jpg';
-import youtubeLogo from '../../Pictures/play-4-32.jpg';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
+import Spotify from '../Utils/Spotify';
+
 
 class Rounds extends React.Component {
 
@@ -22,9 +21,20 @@ class Rounds extends React.Component {
         spotify: false,
         youtube: false,
         instagram: false,
+        accessToken: ''
     }
 
+
+    getToken = () => {
+
      
+
+         this.setState({
+
+             accessToken: Spotify.getaccessToken()
+          })
+        
+    }
 
     startSpotify = () => {
 
@@ -127,7 +137,7 @@ class Rounds extends React.Component {
                         )
                         : null
                     }
-                        {/*insert register component*/ }
+                        
                     </div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
                     <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
@@ -141,12 +151,22 @@ class Rounds extends React.Component {
                     <div className={spotify || youtube ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
                 </div>
-                {/* e.g. spotify true? --> spotify option in home tauschen */}
+                
                 <div className="home-play-buttons">
-                    <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                    <i class="fab fa-spotify"></i>
-                        {texts[language].spotifyPlayWithButton}
-                    </button>
+                    <div>
+                        {  this.state.accessToken ?
+                            <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                            <i class="fab fa-spotify"></i>
+                                {texts[language].spotifyPlayWithButton}
+                            </button>
+                            :
+                            <button className={this.props.youtubeButton} onClick={this.getToken}>
+                              <i class="fab fa-spotify"></i>
+                             {texts[language].spotifyPlayWithButton}
+                            </button>
+                        }
+                    </div>
+                    
                     <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
                     <i class="fab fa-youtube"></i>
                         {texts[language].youtubePlayWithButton}
@@ -159,23 +179,7 @@ class Rounds extends React.Component {
                     {texts[language].home}</Link>
                 </div>
 
-                {/*
-                <div className="home-play-buttons">
-                    <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                        <i class="fab fa-spotify"></i>
-                        {texts[language].spotifyPlayWithButton}
-                    </button>
-                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
-                        <i class="fab fa-youtube"></i>
-                        {texts[language].youtubePlayWithButton}
-                    </button>
-                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
-                        <i class="fab fa-instagram"></i>
-                        {texts[language].instagramPlayWithButton}
-                    </button>
-                </div>
-                
-                */}
+            
             </div>
             </>
             )}

@@ -9,6 +9,8 @@ const UserPofile = ({language}) => {
     const { state, logUserIntoContext } = React.useContext(MyContext);
     console.log(state)
 
+ 
+
 
     return (
         <div className="profile-text">
