@@ -6,6 +6,7 @@ import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
 import spotifyLogo from '../../Pictures/spotify-32.jpg';
+import homebtn from '../../Pictures/home45.png';
 import instagramLogo from '../../Pictures/instagram-6-32.jpg';
 import youtubeLogo from '../../Pictures/play-4-32.jpg';
 import { MyContext } from '../../context/MyProvider';
@@ -154,6 +155,8 @@ class Rounds extends React.Component {
                         <img className="home-btn-image" src={instagramLogo} alt="music" />
                         {texts[language].instagramPlayWithButton}
                     </button>
+                    <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn}/>
+                    {texts[language].home}</Link>
                 </div>
             </div>
             </>

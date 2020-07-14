@@ -63,7 +63,9 @@
         "saveList": "Guardar",
         "playlistInstruct": "T'agrada? Posa-la en Spotify",
         "addToList": "+",
-        "playlistName": "Dóna-li un nom a la llista"
+        "playlistName": "Dóna-li un nom a la llista",
+        "Enter": "Entra",
+        "home": "Inici"
     },
 
     "spanish" : {
@@ -131,7 +133,9 @@
         "saveList": "Guardar",
         "playlistInstruct": "Te gusta? Ponla en Spotify!",
         "addToList": "+",
-        "playlistName": "Dale un nombre a tu lista..."
+        "playlistName": "Dale un nombre a tu lista...",
+        "Enter": "Entra",
+        "home": "Inicio"
     },
 
     "english" : {
@@ -197,7 +201,9 @@
         "saveList": "Save",
         "playlistInstruct": "Like what you hear? You can create a Spotify Playlist with it now!",
         "addToList": "+",
-        "playlistName": "Name your list to save it to your Spotify account"
+        "playlistName": "Name your list to save it to your Spotify account",
+        "Enter": "Enter",
+        "home": "Home"
     },
 
     "french": {
@@ -264,6 +270,8 @@
         "saveList": "Enregistrer",
         "playlistInstruct": "Aimez-vous les chansons que vous entendez? Vous pouvez créer une playlist y ajoutez-les pour Spotify!",
         "addToList": "+",
-        "playlistName": "Nommez votre liste et enregistrez-le sur votre compte de Spotify"
+        "playlistName": "Nommez votre liste et enregistrez-le sur votre compte de Spotify",
+        "Enter": "Entrez",
+         "home": "début"
     }
 }

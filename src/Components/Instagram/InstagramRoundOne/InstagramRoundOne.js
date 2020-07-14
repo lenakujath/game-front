@@ -205,7 +205,7 @@ class InstagramRoundOne extends Component {
                     {(context) => (
                         <div>
                             <Navbar addedClass="fixTop" />
-                            <Rounds language={language} spotifyButton={'btn-game'} youtubeButton={'btn-game'}
+                            <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
                                     instagramButton={'hideGame'}/> 
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>

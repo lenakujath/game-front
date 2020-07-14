@@ -18,7 +18,7 @@ const Home = ({ language }) => (
             <div className="home-play-buttons">
                 <Rounds
                     language={language} spotifyButton={'btn-game'} youtubeButton={'btn-game'}
-                    instagramButton={'btn-game'}
+                    instagramButton={'btn-game'} homeButton={'hideGame'}
                 />
             </div>
         </div>

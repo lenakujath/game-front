@@ -125,7 +125,7 @@ const Login = (props) => {
                             id="user_pass"
                         />
                       
-                        <button className="form-btn" type="submit">Entra!</button>
+                        <button className="form-btn" type="submit">{texts[localStorage.language].login}</button>
                     </form>
                 </div>
             </Fragment>

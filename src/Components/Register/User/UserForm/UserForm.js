@@ -18,7 +18,7 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                     data-toggle="modal"
                     data-target="#register"
                 >
-                    Entra
+                    {texts[localStorage.language].Enter}
                 </button>
 
 
@@ -53,11 +53,11 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            <h2 className="login-tab">login</h2>
+                                            <h2 className="login-tab">{texts[localStorage.language].login}</h2>
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            <h2 className="signup-tab">signUp</h2>
+                                            <h2 className="signup-tab">{texts[localStorage.language].signUp}</h2>
                                         </Panel>
                                     </div>
 
@@ -118,11 +118,11 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            Log in
+                                            {texts[localStorage.language].login}
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            Sign up
+                                            {texts[localStorage.language].signUp}
                                         </Panel>
                                     </div>
 

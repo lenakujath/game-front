@@ -236,7 +236,7 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                 <div />
                             )
                         }
-                         <Rounds language={language} spotifyButton={'hideGame'} instagramButton={'btn-game'}
+                         <Rounds language={language} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
                                  youtubeButton={'btn-game'}/>
                     </div>
                 </>
