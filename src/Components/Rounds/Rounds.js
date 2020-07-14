@@ -144,20 +144,38 @@ class Rounds extends React.Component {
                 {/* e.g. spotify true? --> spotify option in home tauschen */}
                 <div className="home-play-buttons">
                     <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                        <img className="home-btn-image" src={spotifyLogo} alt="music" />
+                    <i class="fab fa-spotify"></i>
                         {texts[language].spotifyPlayWithButton}
                     </button>
                     <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
-                        <img className="home-btn-image" src={youtubeLogo} alt="music" />
+                    <i class="fab fa-youtube"></i>
                         {texts[language].youtubePlayWithButton}
                     </button>
                     <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
-                        <img className="home-btn-image" src={instagramLogo} alt="music" />
+                    <i class="fab fa-instagram"></i>
                         {texts[language].instagramPlayWithButton}
                     </button>
                     <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn}/>
                     {texts[language].home}</Link>
                 </div>
+
+                {/*
+                <div className="home-play-buttons">
+                    <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                        <i class="fab fa-spotify"></i>
+                        {texts[language].spotifyPlayWithButton}
+                    </button>
+                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
+                        <i class="fab fa-youtube"></i>
+                        {texts[language].youtubePlayWithButton}
+                    </button>
+                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
+                        <i class="fab fa-instagram"></i>
+                        {texts[language].instagramPlayWithButton}
+                    </button>
+                </div>
+                
+                */}
             </div>
             </>
             )}
