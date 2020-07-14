@@ -16,7 +16,8 @@ body {
     background-color: #f1f2f2;
     font: 16px/26px "Raleway", sans-serif;
 }
-/*all form*/
+/*all form
+*/
 .form-wrap {
     background-color: #6d999c;
     width: 320px;
@@ -33,6 +34,8 @@ body {
 .tabs h2 :active{
     background-color:#766dca
 }
+
+
 .tabs h2 {
     padding: 1em 0;
     text-align: center;

@@ -5,6 +5,8 @@ import Login from './Login';
 import { MyContext } from '../../../../context/MyProvider';
 import { red } from 'color-name';
 
+const lang2 = localStorage.language || 'spanish';
+
 const SignUp = ({ language }) => {
 
    console.log(localStorage)
@@ -156,7 +158,7 @@ const SignUp = ({ language }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     name="username"
-                     placeholder={texts[localStorage.language].username}
+                     placeholder={texts[lang2].username}
                     type="text"
                     className="input"
                     id="user_name"
@@ -167,7 +169,7 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     name="mail"
                    // placeholder="e-mail"
-                    placeholder={texts[localStorage.language].mail}
+                    placeholder={texts[lang2].mail}
                     type="email"
                     className="input"
                     id="user_email"
@@ -178,7 +180,7 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     name="password"
                     
-                    placeholder={texts[localStorage.language].password}
+                    placeholder={texts[lang2].password}
                     type="password"
                     className="input"
                     id="user_pass"
@@ -188,14 +190,14 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setRepeatedPassword(e.target.value)}
                     name="repeatedPassword"
                     
-                    placeholder={texts[localStorage.language].repeatPassword}
+                    placeholder={texts[lang2].repeatPassword}
                     type="password"
                     className="input"
                     id="user_repeated_pass"
                 />
                 <br />
                 <button className="form-btn" type="submit">                  
-                     {texts[localStorage.language].register} 
+                     {texts[lang2].register} 
                 </button>
             </form>
             <ul>

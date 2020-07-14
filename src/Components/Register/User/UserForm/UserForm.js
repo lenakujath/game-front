@@ -7,6 +7,8 @@ import FormPanel from './FormPanel';
 import texts from '../../../../texts.json';
 import './UserForm.css';
 
+const lang = localStorage.language || 'spanish';
+
 const UserForm = ({ mainpage, language, score, gameIn }) => (
 
     mainpage
@@ -18,7 +20,7 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                     data-toggle="modal"
                     data-target="#register"
                 >
-                    {texts[localStorage.language].Enter}
+                    {texts[lang].Enter}
                 </button>
 
 
@@ -53,11 +55,11 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            <h2 className="login-tab">{texts[localStorage.language].login}</h2>
+                                            <h2 className="login-tab">{texts[lang].login}</h2>
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            <h2 className="signup-tab">{texts[localStorage.language].signUp}</h2>
+                                            <h2 className="signup-tab">{texts[lang].signUp}</h2>
                                         </Panel>
                                     </div>
 
@@ -118,11 +120,11 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            {texts[localStorage.language].login}
+                                            {texts[lang].login}
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            {texts[localStorage.language].signUp}
+                                            {texts[lang].signUp}
                                         </Panel>
                                     </div>
 

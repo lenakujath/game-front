@@ -21,7 +21,10 @@ export default (props) => {
         activePanel: 'signup',
         language: 'spanish',
         authed: true,
+        
     })
+
+
 
     useEffect(() => {
         let session = localStorage.getItem('session')
@@ -139,6 +142,8 @@ export default (props) => {
                 language: 'spanish',
                 authed: true,
             }),
+
+            
 
             replaceState: (newState) => changeState(newState),
 

@@ -15,11 +15,14 @@
     "react-countdown-circle-timer": "^1.1.1",
     "react-countdown-now": "^2.1.2",
     "react-dom": "^16.12.0",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.1.21",
     "react-preloaders": "^3.0.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
     "react-share": "^4.1.0",
     "react-sound": "^1.2.0",
+    "react-spotify-login": "^0.9.1",
     "react-youtube": "^7.9.0"
   },
   "scripts": {

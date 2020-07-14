@@ -10,7 +10,12 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
+
+const onSuccess = response => console.log(response);
+ const onFailure = response => console.error(response);
 
 class Rounds extends React.Component {
 
@@ -26,8 +31,6 @@ class Rounds extends React.Component {
 
 
     getToken = () => {
-
-     
 
          this.setState({
 
@@ -78,6 +81,14 @@ class Rounds extends React.Component {
 
 
     render() {
+
+        const responseFacebook = (response) => {
+            console.log(response);
+          }
+        
+          const responseGoogle = (response) => {
+            console.log(response);
+          }
 
         const { page, instagram, youtube, spotify, button } = this.state;
 
@@ -153,6 +164,30 @@ class Rounds extends React.Component {
                 </div>
                 
                 <div className="home-play-buttons">
+
+                    <FacebookLogin
+
+                    className={this.props.youtubeButton}
+                    appId="1001755983615818" //APP ID 
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    />
+                    <br />
+                    <br />
+
+                    <GoogleLogin
+
+                    className={this.props.youtubeButton}
+                    clientId="278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com" //CLIENTID 
+                    buttonText="LOGIN WITH GOOGLE"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    />
+                        <br />
+                        <br />
+
+                 
+
                     <div>
                         {  this.state.accessToken ?
                             <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
