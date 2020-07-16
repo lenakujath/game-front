@@ -38,6 +38,8 @@ const UserPofile = ({language}) => {
                             Puntos totales:
                             <p className="myprofile-h6">{context.state.total_app_points}</p>
                         </h6>
+
+                      
                         <hr />
                      
                     </div>

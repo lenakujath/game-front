@@ -31,6 +31,8 @@ class App extends React.Component {
       selectedLanguage: localStorage.language || 'spanish',
   }
 
+
+
 setLanguage = (lang, flag) => {
     this.setState({
         selectedLanguage: lang,
@@ -38,6 +40,7 @@ setLanguage = (lang, flag) => {
     localStorage.setItem('language', lang);
     localStorage.setItem('flag', flag);
 }
+    
 
 
 
@@ -58,7 +61,7 @@ render() {
                                 render={(props) => (
                                     <div>
                                     
-                                        <Navbar language={context.state.language} pagein="home" onChangeLanguage={this.setLanguage} />
+                                        <Navbar language={selectedLanguage} pagein="home" onChangeLanguage={this.setLanguage} />
                                         <Home language={selectedLanguage} {...props} />
                                         <div className="social-media-follow-buttons">
                                             <SocialMedia language={selectedLanguage} {...props} />

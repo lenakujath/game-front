@@ -96,12 +96,12 @@ export default (props) => {
                     console.log(newState)
                     console.log(newPoints)
                     Api.setPoints({
-                        'spotify_round_one':newState.spotify_round_one,
-                        'spotify_round_two':newState.spotify_round_two,
-                        'instagram_round_one':newState.instagram_round_one,
-                        'instagram_round_two':newState.instagram_round_two,
-                        'youtube_round_one':newState.youtube_round_one,
-                        'youtube_round_two':newState.youtube_round_two,
+                        'spotify_round_one': newState.spotify_round_one,
+                        'spotify_round_two': newState.spotify_round_two,
+                        'instagram_round_one': newState.instagram_round_one,
+                        'instagram_round_two': newState.instagram_round_two,
+                        'youtube_round_one': newState.youtube_round_one,
+                        'youtube_round_two': newState.youtube_round_two,
                         'total_app_points': newState.total_app_points,
                         'user':newState.user
                     }).then((resp)=>{

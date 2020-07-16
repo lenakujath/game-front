@@ -158,7 +158,7 @@ const SignUp = ({ language }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     name="username"
-                     placeholder={texts[lang2].username}
+                     placeholder={localStorage.language ? texts[localStorage.language].username : texts[lang2].username}
                     type="text"
                     className="input"
                     id="user_name"
@@ -169,7 +169,7 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     name="mail"
                    // placeholder="e-mail"
-                    placeholder={texts[lang2].mail}
+                    placeholder={localStorage.language ? texts[localStorage.language].mail : texts[lang2].mail}
                     type="email"
                     className="input"
                     id="user_email"
@@ -180,7 +180,7 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     name="password"
                     
-                    placeholder={texts[lang2].password}
+                    placeholder={localStorage.language ? texts[localStorage.language].password : texts[lang2].password}
                     type="password"
                     className="input"
                     id="user_pass"
@@ -190,14 +190,14 @@ const SignUp = ({ language }) => {
                     onChange={(e) => setRepeatedPassword(e.target.value)}
                     name="repeatedPassword"
                     
-                    placeholder={texts[lang2].repeatPassword}
+                    placeholder={localStorage.language ? texts[localStorage.language].repeatPassword : texts[lang2].repeatPassword}
                     type="password"
                     className="input"
                     id="user_repeated_pass"
                 />
                 <br />
                 <button className="form-btn" type="submit">                  
-                     {texts[lang2].register} 
+                     {localStorage.language ? texts[localStorage.language].register : texts[lang2].register} 
                 </button>
             </form>
             <ul>

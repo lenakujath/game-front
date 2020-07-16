@@ -150,7 +150,7 @@ class Rounds extends React.Component {
                     }
                         
                     </div>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{context.state.spotify_round_one}</button></Link>
                     <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     

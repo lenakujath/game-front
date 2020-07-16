@@ -7,7 +7,9 @@ import FormPanel from './FormPanel';
 import texts from '../../../../texts.json';
 import './UserForm.css';
 
-const lang = localStorage.language || 'spanish';
+const lang1 = localStorage.language || 'spanish';
+
+console.log(localStorage);
 
 const UserForm = ({ mainpage, language, score, gameIn }) => (
 
@@ -20,7 +22,7 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                     data-toggle="modal"
                     data-target="#register"
                 >
-                    {texts[lang].Enter}
+                    {localStorage.language ? texts[localStorage.language].Enter : texts[lang1].Enter}
                 </button>
 
 
@@ -55,20 +57,20 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            <h2 className="login-tab">{texts[lang].login}</h2>
+                                            <h2 className="login-tab">{localStorage.language ? texts[localStorage.language].login : texts[lang1].login}</h2>
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            <h2 className="signup-tab">{texts[lang].signUp}</h2>
+                                            <h2 className="signup-tab">{localStorage.language ? texts[localStorage.language].signUp : texts[lang1].signUp}</h2>
                                         </Panel>
                                     </div>
 
                                     <FormPanel isActive="login">
-                                        <Login pageIn="between-rounds" />
+                                        <Login language={lang1} pageIn="between-rounds" />
                                     </FormPanel>
 
                                     <FormPanel isActive="signup">
-                                        <SignUp language={language} />
+                                        <SignUp language={lang1} />
                                     </FormPanel>
                                 {/* </MyProvider> */}
                             </div>
@@ -120,16 +122,16 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                                     <div className="tabs">
                                         <Panel id="login">
                                             {/* <h2 className="login-tab">{texts[language].login}</h2> */}
-                                            {texts[lang].login}
+                                            {localStorage.language ? texts[localStorage.language].login : texts[lang1].login}
                                         </Panel>
                                         <Panel id="signup">
                                             {/* <h2 className="signup-tab">{texts[language].signUp}</h2> */}
-                                            {texts[lang].signUp}
+                                            {localStorage.language ? texts[localStorage.language].singUp : texts[lang1].singUp}
                                         </Panel>
                                     </div>
 
                                     <FormPanel isActive="login">
-                                        <Login pageIn="between-rounds" gameIn={gameIn} score={score} />
+                                        <Login pageIn="between-rounds" language={language} gameIn={gameIn} score={score} />
                                     </FormPanel>
 
                                     <FormPanel isActive="signup">
