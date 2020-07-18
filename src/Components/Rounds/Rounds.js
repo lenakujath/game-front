@@ -14,8 +14,6 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
 
-const onSuccess = response => console.log(response);
- const onFailure = response => console.error(response);
 
 class Rounds extends React.Component {
 
@@ -148,9 +146,12 @@ class Rounds extends React.Component {
                         )
                         : null
                     }
+
+     
                         
                     </div>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{context.state.spotify_round_one}</button></Link>
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">
+                        {context.state.spotify_round_one ? context.state.spotify_round_one : texts[language].roundOneText}</button></Link>
                     <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     

@@ -7,9 +7,9 @@ import FormPanel from './FormPanel';
 import texts from '../../../../texts.json';
 import './UserForm.css';
 
-const lang1 = localStorage.language || 'spanish';
+const lang1 = 'spanish';
 
-console.log(localStorage);
+
 
 const UserForm = ({ mainpage, language, score, gameIn }) => (
 
