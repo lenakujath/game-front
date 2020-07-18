@@ -152,7 +152,12 @@ const UserPofile = ({language}) => {
                         <h6>
                             Puntos totales:
                             <p className="myprofile-h6">{context.state.total_app_points}</p>
-                        </h6>                   
+                        </h6>
+
+                        <h4 className="myprofile-h4">
+                            {texts[language].profileMessage}
+                        </h4>
+
                         <hr />
                         <button onClick={() => setEdit(true)}>Edit</button>
                         {editing
