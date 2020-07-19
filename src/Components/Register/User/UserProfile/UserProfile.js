@@ -15,6 +15,13 @@ const UserPofile = ({language}) => {
     const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
 
+    const postChange = (e) => {
+
+        e.preventDefault();
+        console.log(username, phone, region);
+        
+    }
+
  
     return (
         <div className="profile-text">
@@ -32,8 +39,10 @@ const UserPofile = ({language}) => {
                         <hr />
                         
                           {editing
+
                         ?
                             <div>
+                                <form onSubmit={postChange}>
                                 <input
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -43,19 +52,7 @@ const UserPofile = ({language}) => {
                                     className="input"
                                     id="user_email"
                                 />
-                            </div>
-                        :
-                            <div>
-                                    <h6> {texts[language].mail}:
-                                    <p className="myprofile-h6">{context.state.email}</p>
-                                    </h6>
-                            </div> 
-                        
-                        }
 
-                            {editing
-                        ?
-                            <div>
                                 <input
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
@@ -66,20 +63,6 @@ const UserPofile = ({language}) => {
                                     id="user_name"
                                 />
 
-                            </div>
-                        :
-                        <div>  
-                            <h6>
-                            {texts[language].username}:
-                                <p className="myprofile-h6">{context.state.username}</p>
-                            </h6>
-                        </div>  
-                        
-                         }
-
-                            {editing
-                        ?
-                            <div>
                                 <input
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
@@ -90,20 +73,6 @@ const UserPofile = ({language}) => {
                                     id="phone_number"
                                 />
 
-                            </div>
-                        :
-                        <div>  
-                            <h6>
-                                Number:
-                                <p className="myprofile-h6"></p>
-                            </h6>
-                        </div>  
-                        
-                         }
-
-                            {editing
-                        ?
-                            <div>
                                 <input
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
@@ -114,20 +83,6 @@ const UserPofile = ({language}) => {
                                     id="city"
                                 />
 
-                            </div>
-                        :
-                        <div>  
-                            <h6>
-                                City:
-                                <p className="myprofile-h6"></p>
-                            </h6>
-                        </div>  
-                        
-                         }
-
-                            {editing
-                        ?
-                            <div>
                                 <input
                                     value={region}
                                     onChange={(e) => setRegion(e.target.value)}
@@ -137,17 +92,36 @@ const UserPofile = ({language}) => {
                                     className="input"
                                     id="region"
                                 />
-
+                                <button type="submit">Safe</button>
+                                 </form>
                             </div>
                         :
-                        <div>  
-                            <h6>
-                                Region:
-                                <p className="myprofile-h6"></p>
-                            </h6>
-                        </div>  
-                        
-                         }
+                            <div>
+                                    <h6> {texts[language].mail}:
+                                    <p className="myprofile-h6">{context.state.email}</p>
+                                    </h6>
+
+                                    <h6>
+                                     {texts[language].username}:
+                                    <p className="myprofile-h6">{context.state.username}</p>
+                                    </h6>
+
+                                    <h6>
+                                        Number:
+                                        <p className="myprofile-h6"></p>
+                                    </h6>
+
+                                    <h6>
+                                        City:
+                                        <p className="myprofile-h6"></p>
+                                    </h6>
+
+                                    <h6>
+                                        Region:
+                                        <p className="myprofile-h6"></p>
+                                     </h6>
+                                    </div>                      
+                        }           
 
                         <h6>
                             Puntos totales:
@@ -159,7 +133,7 @@ const UserPofile = ({language}) => {
                         </h4>
 
                         <hr />
-                        <button onClick={() => setEdit(true)}>Edit</button>
+                        <button onClick={() => setEdit(true)}>Complete Profile</button>
                         {editing
                         ?
                         <button onClick={() => setEdit(false)}>Cancel</button>
