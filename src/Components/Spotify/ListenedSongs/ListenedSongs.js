@@ -11,6 +11,7 @@ import UserForm from '../../Register/User/UserForm/UserForm';
 import Register from '../../Register/Register';
 import { MyContext } from '../../../context/MyProvider';
 import Rounds from '../../Rounds/Rounds';
+import { Link } from 'react-router-dom';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
 
@@ -238,6 +239,8 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                         }
                          <Rounds language={language} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
                                  youtubeButton={'btn-game'}/>
+                        <Link to="spotifyroundone"><button className="btn-game" type="button">Vuelve a jugar</button></Link>
+
                     </div>
                 </>
             )}

@@ -11,7 +11,7 @@ import next2 from '../../../Pictures/next2.gif';
 
 //copy playmusicstartTimer in spotifyroundone add a set timeout like in "rendertime" for the case of the last question
 
-const SONG_TIMER_DURATION =  10;
+const SONG_TIMER_DURATION = 0.1;
 
 class PlayerCountdown extends Component {
 
@@ -45,12 +45,12 @@ class PlayerCountdown extends Component {
         setNewRandomSong();
 
         this.setState({
-        // This makes the countdown start counting when the new state is set (on play clicked) instead of when
-        // the page is loaded
+            // This makes the countdown start counting when the new state is set (on play clicked) instead of when
+            // the page is loaded
             uniqueKey: Date.now(),
             playStatus: Sound.status.PLAYING,
             isPlaying: true,
-        // This makes the 'play' button disappear once you click on it
+            // This makes the 'play' button disappear once you click on it
         });
 
         // sets the length and specifics of the timer
