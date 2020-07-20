@@ -14,8 +14,6 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
 
-const onSuccess = response => console.log(response);
- const onFailure = response => console.error(response);
 
 class Rounds extends React.Component {
 
@@ -87,7 +85,7 @@ class Rounds extends React.Component {
           }
         
           const responseGoogle = (response) => {
-            console.log(response);
+            console.log(response.profileObj.email);
           }
 
         const { page, instagram, youtube, spotify, button } = this.state;
@@ -128,6 +126,7 @@ class Rounds extends React.Component {
             {(context) => (
                 <>
             <div>
+                {/* displaying the appropriate introduction, depending on chosen game */}
                 <div className={page}>
                     <div className="title">
                        <h1 >{texts[language].roundOneText}</h1>
@@ -147,10 +146,14 @@ class Rounds extends React.Component {
                              </div>
                         )
                         : null
-                    }
-                        
+                    }                                        
                     </div>
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">{context.state.spotify_round_one}</button></Link>
+
+                    {/* displaying the appropriate button depending on user choise
+                    {context.state.spotify_round_one ? context.state.spotify_round_one : texts[language].roundOneText} */}
+
+                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">
+                        {context.state.spotify_round_one || texts[language].roundOneText}</button></Link>
                     <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     

@@ -5,11 +5,11 @@ import Login from './Login';
 import { MyContext } from '../../../../context/MyProvider';
 import { red } from 'color-name';
 
-const lang2 = localStorage.language || 'spanish';
+const lang2 = 'spanish';
 
 const SignUp = ({ language }) => {
 
-   console.log(localStorage)
+   
 
     const { logUserIntoContext } = React.useContext(MyContext);
     // const [users, updateUsers] = useState([]);
@@ -133,9 +133,6 @@ const SignUp = ({ language }) => {
                         })   
                     })
                    
-                    
-                    
-                    //logUserIntoContext(data);
                 });
                 }
                 return res.json();
@@ -158,7 +155,7 @@ const SignUp = ({ language }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     name="username"
-                     placeholder={localStorage.language ? texts[localStorage.language].username : texts[lang2].username}
+                    placeholder={localStorage.language ? texts[localStorage.language].username : texts[lang2].username}
                     type="text"
                     className="input"
                     id="user_name"
@@ -168,7 +165,6 @@ const SignUp = ({ language }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     name="mail"
-                   // placeholder="e-mail"
                     placeholder={localStorage.language ? texts[localStorage.language].mail : texts[lang2].mail}
                     type="email"
                     className="input"
@@ -205,7 +201,7 @@ const SignUp = ({ language }) => {
                 return <li key={index}>{value['message']}</li>
             })}
             </ul>
-            {/* {messages.length > 0 && <div style={{ color: messages[0].color }}>{messages[0].message}</div>} */}
+            
         </div>
     );
 };

@@ -138,6 +138,7 @@ export default (props) => {
                 instagram_round_two: data.instagram_round_two,
                 youtube_round_one: data.youtube_round_one,
                 youtube_round_two: data.youtube_round_two,
+                updateTotalPoints: data.total_app_points,
                 activePanel: 'login',
                 language: 'spanish',
                 authed: true,
