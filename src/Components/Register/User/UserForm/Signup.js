@@ -4,6 +4,7 @@ import texts from '../../../../texts.json';
 import Login from './Login';
 import { MyContext } from '../../../../context/MyProvider';
 import { red } from 'color-name';
+import SocialLogin from '../../SocialLogin/SocialLogin';
 
 const lang2 = 'spanish';
 
@@ -151,6 +152,7 @@ const SignUp = ({ language }) => {
         <div id="signup-tab-content" className="active tabs-content">
             <form className="signup-form" onSubmit={postProfile}>
                 <br />
+                <SocialLogin/>
                 <input
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}

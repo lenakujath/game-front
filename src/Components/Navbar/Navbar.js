@@ -15,6 +15,8 @@ import spanish from '../../Pictures/bandera_spanish_small.png';
 import english from '../../Pictures/bandera_english_small.png';
 import french from '../../Pictures/bandera_french_small.png';
 import userbtn from '../../Pictures/user.png';
+//import SocialLogin from '../Register/SocialLogin/SocialLogin';
+
 
 
 
@@ -61,6 +63,8 @@ class Navbar extends React.Component {
             : 'color-navbar';
 
         return (
+            <MyContext.Consumer>
+            {(context) => (
             <nav className={`${navbarClass} ${addedClass}`} id="topnavbar">
                 <div>
                     {pagein === 'home'
@@ -96,6 +100,9 @@ class Navbar extends React.Component {
                             </div>
                         )}
                 </div>
+                <div>
+                {/* <SocialLogin/> */}
+                </div>
                 <div className="space" />
                 <div>
                     {pagein === 'game'
@@ -106,17 +113,18 @@ class Navbar extends React.Component {
                                     <button type="button" className="user-dropdown-btn" style={{ float: 'right' }}>
                                         <div className="picture-points">
                                             <div className="user-profile">
-                                                <img src={userbtn} alt="user profile" />
+                                                <img src={context.state.picture || userbtn} alt="user profile" />
                                             </div>
                                             <div className="nav-username">
                                                 <MyContext.Consumer>
                                                     {(context) => (   
-                                                        context.state.username
+                                                        context.state.username || context.state.email
                                                             ? (
                                                                 <div className="user-points">
                                                                    <Link to="/user">
                                                                      <p>
-                                                                        {context.state.username}
+                                                                        {context.state.username ? context.state.username : context.state.email }
+                                                                        
                                                                         {' '}
                                                                     </p>
                                                                     </Link>
@@ -148,6 +156,8 @@ class Navbar extends React.Component {
                         )}
                 </div>
             </nav>
+             )}
+             </MyContext.Consumer>
         );
     }
 }

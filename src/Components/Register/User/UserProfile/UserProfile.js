@@ -30,7 +30,7 @@ const UserPofile = ({language}) => {
                     <div className='profile-content'>
                         <hr />
                         <div className='myprofile-title'>
-                        <img src={profile} alt="profile icon" className= 'profile-icon-user'/>                    
+                        <img src={context.state.picture || profile} alt="profile icon" className= 'profile-icon-user'/>                    
                        
                         <h1>{context.state.username}</h1>    
                                                                          
@@ -43,7 +43,7 @@ const UserPofile = ({language}) => {
                         ?
                             <div>
                                 <form onSubmit={postChange}>
-                                <input
+                                {/* <input
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     name="mail"
@@ -51,9 +51,9 @@ const UserPofile = ({language}) => {
                                     type="email"
                                     className="input"
                                     id="user_email"
-                                />
+                                /> */}
 
-                                <input
+                                {/* <input
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                     name="username"
@@ -61,7 +61,7 @@ const UserPofile = ({language}) => {
                                     type="text"
                                     className="input"
                                     id="user_name"
-                                />
+                                /> */}
 
                                 <input
                                     value={phone}
@@ -117,7 +117,7 @@ const UserPofile = ({language}) => {
                                     </h6>
 
                                     <h6>
-                                        Region:
+                                        State/Province:
                                         <p className="myprofile-h6"></p>
                                      </h6>
                                     </div>                      

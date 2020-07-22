@@ -29,6 +29,14 @@ body {
 ;
     /* border-radius: 5%; */
 
+ /* .popUp {
+
+    width: 50vh;
+    height: 50vh;
+    margin: auto;
+    background: black;
+}  */
+
 .form-wrap {
     background-color: #6d999c;
     width: 19em;

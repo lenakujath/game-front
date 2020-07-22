@@ -29,9 +29,9 @@ const Login = (props) => {
             "pre_username": username, 
             'username' : username.toLowerCase(),
             "password": password,
-                    
-             
+                               
              }).then((resp) => {
+                 
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
@@ -41,6 +41,7 @@ const Login = (props) => {
              },(err)=>{
 
              })
+            };
 
 
         // fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
@@ -96,7 +97,7 @@ const Login = (props) => {
         //     console.log('between-rounds')
         //     addPoints(props.score, 'spotify', 'one');
         // }
-    };
+    
 
     return (
         <div>

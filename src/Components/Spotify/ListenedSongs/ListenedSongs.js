@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, {useState} from 'react';
 // import { Link } from 'react-router-dom';
 import { EmailShareButton, FacebookShareButton,
     TwitterShareButton, WhatsappShareButton, EmailIcon,
@@ -11,10 +11,15 @@ import UserForm from '../../Register/User/UserForm/UserForm';
 import Register from '../../Register/Register';
 import { MyContext } from '../../../context/MyProvider';
 import Rounds from '../../Rounds/Rounds';
+import { Link } from 'react-router-dom';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
 
-const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSongs, score, roundfrom }) => {
+const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, unknownSongs, score, roundfrom }) => {
+
+    const refreshPage =() => {
+        window.location.reload(true);
+      }
 
     const loginComp = (context) => {
 
@@ -236,8 +241,9 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                 <div />
                             )
                         }
-                         <Rounds language={language} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
+                         <Rounds language={language} tokenButton={'hideGame'} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
                                  youtubeButton={'btn-game'}/>
+                                <button className={'btn-game'} onClick={() => refreshPage()}  type="button">Vuelve a jugar</button>
                     </div>
                 </>
             )}
