@@ -68,6 +68,8 @@ const SignUp = ({ language }) => {
         return validates
     }
 
+    //change to axios eventually
+
     const postProfile = (e) => {
         e.preventDefault();
    //test password: no error --> fetch
@@ -152,7 +154,7 @@ const SignUp = ({ language }) => {
         <div id="signup-tab-content" className="active tabs-content">
             <form className="signup-form" onSubmit={postProfile}>
                 <br />
-                <SocialLogin/>
+                <SocialLogin />
                 <input
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
