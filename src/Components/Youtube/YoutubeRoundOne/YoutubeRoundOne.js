@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import '../Youtube.css';
 // import { Link } from 'react-router-dom';
 import Register from '../../Register/Register';
+import texts from '../../../texts.json';
 import YTGame from '../YTGame/YTGame';
 import { MyContext } from '../../../context/MyProvider';
 import UserForm from '../../Register/User/UserForm/UserForm';
@@ -54,7 +55,7 @@ class YoutubeRoundOne extends Component {
                                     instagramButton={'btn-game'}/> 
                             <div className="instagram-game-over youtube-game-over">
                                 <h3>{`Has hecho ${localStorage.yt_points_1} puntos`}</h3>
-                                 <button className='btn-game' onClick={this.restartYoutube}>Vuelve a jugar</button> 
+                                 <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button> 
                                 {context.state.username
                                     ? <Register language={language} currentGame="youtube" roundIn= 'one'/>
                                     /* <Link to="youtuberoundtwo"><button className = 'navbar-btn' type="button" onClick={() => context.addPoints(this.counter)}>Juega una segunda ronda</button></Link> */

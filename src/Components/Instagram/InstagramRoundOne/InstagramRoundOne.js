@@ -215,7 +215,7 @@ class InstagramRoundOne extends Component {
                                     instagramButton={'hideGame'}/> 
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
-                                <button className='btn-game' onClick={this.restartInstagram}>Vuelve a jugar</button> 
+                                <button className='btn-game' onClick={this.restartInstagram}>{texts[language].playAgain}</button> 
                                 {context.state.username || context.state.email
                                     ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText} buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />
                                     : <UserForm language={language} />}
