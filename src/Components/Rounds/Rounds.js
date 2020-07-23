@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DelayLink from 'react-delay-link';
 import texts from '../../texts.json';
 import './Rounds.css';
 import '../../App.css';
@@ -10,9 +11,7 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
-
+import PopUp from '../Rounds/PopUp';
 
 
 class Rounds extends React.Component {
@@ -24,7 +23,8 @@ class Rounds extends React.Component {
         spotify: false,
         youtube: false,
         instagram: false,
-        accessToken: ''
+        accessToken: '',
+        
     }
 
 
@@ -44,7 +44,6 @@ class Rounds extends React.Component {
 
         localStorage.setItem('savedState', JSON.stringify(this.context));
 
-        // localStorage.setItem('spotifyRound', true);
 
         this.setState({
             spotify: spotStart,
@@ -77,29 +76,26 @@ class Rounds extends React.Component {
         });
     }
 
+ 
+
+  
 
     render() {
 
-        const responseFacebook = (response) => {
-            console.log(response);
-          }
-        
-          const responseGoogle = (response) => {
-            console.log(response.profileObj.email);
-          }
 
-        const { page, instagram, youtube, spotify, button } = this.state;
+        const { page, instagram, youtube, spotify, button, popUp } = this.state;
 
         const { language, score } = this.props;
 
         const loginComp = (context) => {
 
-            const { state: { username } } = context;
+            const { state: { username, email } } = context;
     
-            if (username) {
+            if (username || email) {
                
                 return (
-                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Spotify} score={score} currentGame="spotify" language={language} />
+                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Spotify}
+                     score={score} currentGame="spotify" language={language} />
                 );
             }
     
@@ -108,13 +104,14 @@ class Rounds extends React.Component {
 
         const loginComp2 = (context) => {
 
-            const { state: { username } } = context;
+            const { state: { username, email } } = context;
     
-            if (username) {
+            if (username || email) {
                
                 return (
                     
-                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram} score={score} currentGame="instagram" language={language} />
+                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram}
+                     score={score} currentGame="instagram" language={language} />
                 );
             }
     
@@ -126,6 +123,9 @@ class Rounds extends React.Component {
             {(context) => (
                 <>
             <div>
+                <div className={popUp}>
+
+                </div>
                 {/* displaying the appropriate introduction, depending on chosen game */}
                 <div className={page}>
                     <div className="title">
@@ -152,9 +152,18 @@ class Rounds extends React.Component {
                     {/* displaying the appropriate button depending on user choise
                     {context.state.spotify_round_one ? context.state.spotify_round_one : texts[language].roundOneText} */}
 
-                    <Link className={youtube || instagram ? 'hideGame' : 'title'} to="spotifyroundone"><button className="button1" type="button">
-                        {context.state.spotify_round_one || texts[language].roundOneText}</button></Link>
-                    <div className={youtube || instagram ? 'hideGame' : 'title'} >{loginComp(context)}</div>
+                    {/* button invokes a method that first shows popup and then with set timeout got to spotifyroundone 
+                    clicked ? <SpotifyRoundone/>
+                    <button className="button1" type="button">
+                        {context.state.spotify_round_one || texts[language].roundOneText}</button>
+                    
+                    */}
+                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
+                     <DelayLink  delay={4000} clickAction={this.popUp}   to="spotifyroundone" >
+                   <PopUp/>
+                    </DelayLink> 
+                    </div>
+                    <div className={youtube || instagram ? 'hideGame' : 'title'}>{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     
                     <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
@@ -167,28 +176,6 @@ class Rounds extends React.Component {
                 </div>
                 
                 <div className="home-play-buttons">
-
-                    <FacebookLogin
-
-                    className={this.props.youtubeButton}
-                    appId="1001755983615818" //APP ID 
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    />
-                    <br />
-                    <br />
-
-                    <GoogleLogin
-
-                    className={this.props.youtubeButton}
-                    clientId="278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com" //CLIENTID 
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    />
-                        <br />
-                        <br />
-
                  
 
                     <div>
@@ -198,9 +185,9 @@ class Rounds extends React.Component {
                                 {texts[language].spotifyPlayWithButton}
                             </button>
                             :
-                            <button className={this.props.youtubeButton} onClick={this.getToken}>
+                            <button className={this.props.tokenButton} onClick={this.getToken}>
                               <i class="fab fa-spotify"></i>
-                             {texts[language].spotifyPlayWithButton}
+                             Get key for Spotify
                             </button>
                         }
                     </div>

@@ -9,6 +9,8 @@ export default (props) => {
     const [state,setState] = useState({
         accessToken: '',
         username: '',
+        name: '',
+        picture: '',
         user:'',
         email: '',
         spotify_round_one: '',
@@ -113,7 +115,9 @@ export default (props) => {
             clearUser: () => changeState({
                 accessToken:'',
                 username: '',
+                name: '',
                 user:'',
+                picture: '',
                 email: '',
                 spotify_round_one: '',
                 spotify_round_two: '',
@@ -127,10 +131,19 @@ export default (props) => {
                 authed: false,
             }),
 
+            addPicture: (newPicture) => changeState({
+
+                ...state,
+                picture : newPicture
+
+            }),
+
             logUserIntoContext: (data) => changeState({
                 accessToken: data.accessToken,
                 username: data.username,
+                name: data.name,
                 user:data.id,
+                picture: data.picture,
                 email: data.email,
                 spotify_round_one: data.spotify_round_one,
                 spotify_round_two: data.spotify_round_two,

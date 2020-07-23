@@ -14,6 +14,7 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
 import { MyContext } from '../../../context/MyProvider';
+import Userform from '../../Register/User/UserForm/UserForm';
 
 
 class SpotifyRoundOne extends React.Component {
@@ -45,6 +46,7 @@ class SpotifyRoundOne extends React.Component {
             uri: '',
         },
 
+        name: '',
         loading: true,
         hideResults: true,
         correctAnswers: 0,
@@ -108,6 +110,8 @@ class SpotifyRoundOne extends React.Component {
 
         return fourShuffledSongsArr;
     }
+
+   
 
     setNewRandomSong = () => {
 
@@ -279,10 +283,21 @@ class SpotifyRoundOne extends React.Component {
         });
     }
 
+    someMethod = () => {
+        // Force a render with a simulated state change
+         this.setState({ 
+            name: 'heeeeey'
+         });
+
+        //this.forceUpdate();
+       
+    }
+
 
     render() {
 
-        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, songNames, name, songUrl, playerState, playing, currentAttempt } = this.state;
+        const { giveMeConfetti, playlistName, noTracks, playlistTracks, score, currentSong, hideResults, 
+            songNames, name, songUrl, playerState, playing, currentAttempt } = this.state;
 
         const { language } = this.props;
      
@@ -291,6 +306,7 @@ class SpotifyRoundOne extends React.Component {
                 <section>
                     {}
                     {/* <ShareTheGame score={score} /> */}
+              
                     {currentAttempt <= this.NUMBER_OF_SONGS_TO_PLAY_WITH
                         ? (
                             <div className="show">
@@ -371,6 +387,7 @@ class SpotifyRoundOne extends React.Component {
                                     playlistName={playlistName}
                                     noTracks={noTracks}
                                     playlistTracks={playlistTracks}
+                                    reload={this.someMethod}
                                 />
                                 <div className="social-media-follow-buttons">
                                     <SocialMedia

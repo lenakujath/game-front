@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, {useState} from 'react';
 // import { Link } from 'react-router-dom';
 import { EmailShareButton, FacebookShareButton,
     TwitterShareButton, WhatsappShareButton, EmailIcon,
@@ -15,7 +15,11 @@ import { Link } from 'react-router-dom';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
 
-const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSongs, score, roundfrom }) => {
+const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, unknownSongs, score, roundfrom }) => {
+
+    const refreshPage =() => {
+        window.location.reload(true);
+      }
 
     const loginComp = (context) => {
 
@@ -237,10 +241,14 @@ const ListenedSongs = ({ save, naming, adding, playlistName, language, unknownSo
                                 <div />
                             )
                         }
-                         <Rounds language={language} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
+                         <Rounds language={language} tokenButton={'hideGame'} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
                                  youtubeButton={'btn-game'}/>
+<<<<<<< HEAD
                         <Link to="spotifyroundone"><button className="btn-game" type="button">Vuelve a jugar</button></Link>
 
+=======
+                                <button className={'btn-game'} onClick={() => refreshPage()}  type="button">Vuelve a jugar</button>
+>>>>>>> cdc866155ef54e663e08833d7fa8860dc0e03b77
                     </div>
                 </>
             )}

@@ -47,6 +47,12 @@ class InstagramRoundOne extends Component {
 
     numberOfPosts = '275';
 
+    restartInstagram = () => {
+        this.setState({
+            gameStatus: 'playing',
+        });
+    }
+
     componentDidMount() {
         console.log(this.context)
         fetch(`https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables=
@@ -205,11 +211,12 @@ class InstagramRoundOne extends Component {
                     {(context) => (
                         <div>
                             <Navbar addedClass="fixTop" />
-                            <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
+                            <Rounds language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
                                     instagramButton={'hideGame'}/> 
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
-                                {context.state.username
+                                <button className='btn-game' onClick={this.restartInstagram}>Vuelve a jugar</button> 
+                                {context.state.username || context.state.email
                                     ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText} buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />
                                     : <UserForm language={language} />}
                             </div>
