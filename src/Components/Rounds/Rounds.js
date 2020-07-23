@@ -128,7 +128,7 @@ class Rounds extends React.Component {
                 </div>
                 {/* displaying the appropriate introduction, depending on chosen game */}
                 <div className={page}>
-                    <div className="title">
+                    <div className="title" style={{marginTop:'-25vh'}}>
                        <h1 >{texts[language].roundOneText}</h1>
                     {spotify ?
                         (
@@ -166,10 +166,12 @@ class Rounds extends React.Component {
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>{loginComp(context)}</div>
                     <Link className={youtube || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
                     
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="youtuberoundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
-                    <Link className={spotify || instagram ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
+                    <div style={{position:'absolute',maxWidth:'600px',backgroundColor:'red',marginLeft:'auto',marginRight:'auto',height:'300px'}}>
 
+                    <Link className={youtube ? 'title' : 'hideGame'} to="youtuberoundone" style={{position:'relative',top:'2rem'}}><button className="button1" type="button">{texts[language].startRound1}</button></Link>
+                    <Link className={youtube ? 'title' : 'hideGame'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
+                    <Link className={youtube ? 'title' : 'hideGame'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
+                    </div>
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link>
                     <div className={spotify || youtube ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
                     <Link className={spotify || youtube ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>

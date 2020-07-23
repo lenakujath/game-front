@@ -13,7 +13,7 @@ import Rounds from '../Rounds/Rounds';
 // the links to the second Rounds in Register.js
 
 const Home = ({ language }) => {
-
+console.log(language)
   
 
     return(
