@@ -100,21 +100,13 @@ const SocialLogin = (props) => {
 
   
 
-    const postProfile = () => {
+    const postProfile = (user) => {
                 
+        console.log(email)
         
-        
-        Api.socialSignUp({
-                
-            'name' : username.toLowerCase(),
-            "email": email,
-            "id": id,
-            "picture": picture,
-            "roles": ["user"]
-                    
-             
-             }).then((data) => {
-                 
+        console.log(user)
+        Api.socialSignUp(user).then((data) => {
+                 console.log(data)
                 Api.setSessionToken(data.data.accessToken)
                 Api.setPoints({
                                              'spotify_round_one':0,
@@ -130,7 +122,7 @@ const SocialLogin = (props) => {
                                             Api.getPoints(data.data.id).then((resp2)=>{
                                                 let user = {...data.data, ...resp2['data']};
                                                 logUserIntoContext(user);
-                                                window.location.reload(true);
+                                                //window.location.reload(true);
                                                 console.log('data you pass to the context', user);
                                             })   
                                         }) 
@@ -143,22 +135,49 @@ const SocialLogin = (props) => {
 
     const responseFacebook =  (response) => {
         console.log(response);
-        
-        setEmail(response.email);
-        setUsername(response.name);
-        setId(response.id);
-        setPicture(response.picture.data.url);
-     
+        let user = {
+                
+            'name' : response.name.toLowerCase(),
+            "email": response.email,
+            "id": response.id,
+            "picture": response.picture.data.url,
+            "roles": ["user"]
+                    
+             
+             }
+
+        // setEmail(response.email);
+        // setUsername(response.name);
+        // setId(response.id);
+        // setPicture(response.picture.data.url);
+        // postProfile(response)
+        postProfile(user)
       }
     
       const responseGoogle =  (response) => {
         console.log(response);  
         console.log((response.profileObj.imageUrl));
-        setEmail(response.profileObj.email);
-        setUsername(response.profileObj.givenName);
-        setId(response.profileObj.googleId);
-        setPicture(response.profileObj.imageUrl);
-               
+        let user = {
+                
+            'name' : response.profileObj.name.toLowerCase(),
+            "email": response.profileObj.email,
+            "id": response.profileObj.googleId,
+            "picture": response.profileObj.imageUrl,
+            "roles": ["user"]
+                    
+             
+             }
+
+        // setEmail(response.profileObj.email);
+
+        // setUsername(response.profileObj.givenName);
+        // setId(response.profileObj.googleId);
+        // setPicture(response.profileObj.imageUrl);
+        postProfile(user)
+      }
+
+      const responseGoogleFail = (response) => {
+
       }
 
     
@@ -188,7 +207,7 @@ const SocialLogin = (props) => {
             clientId="278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com" //CLIENTID 
             buttonText=""
             onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onFailure={responseGoogleFail}
         />
 
         
