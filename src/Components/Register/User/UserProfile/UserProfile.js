@@ -92,7 +92,7 @@ const UserPofile = ({language}) => {
                                     className="input"
                                     id="region"
                                 />
-                                <button type="submit">Safe</button>
+                                <button className="safeBtn" type="submit">Safe</button>
                                  </form>
                             </div>
                         :
@@ -133,10 +133,10 @@ const UserPofile = ({language}) => {
                         </h4>
 
                         <hr />
-                        <button onClick={() => setEdit(true)}>Complete Profile</button>
+                        <button className="myprofile-btn" onClick={() => setEdit(true)}>Complete Profile</button>
                         {editing
                         ?
-                        <button onClick={() => setEdit(false)}>Cancel</button>
+                        <button className="cancelBtn" onClick={() => setEdit(false)}>Cancel</button>
                         :
                         <p></p>
                         }
