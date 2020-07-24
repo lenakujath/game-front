@@ -51,9 +51,7 @@ class InstagramRoundOne extends Component {
     numberOfPosts = '275';
 
     restartInstagram = () => {
-        this.setState({
-            gameStatus: 'playing',
-        });
+       window.location.reload(true)
     }
 
     componentDidMount() {
@@ -157,7 +155,7 @@ class InstagramRoundOne extends Component {
 
         const { language } = this.props;
 
-        const { giveMeConfetti, randomImageSrc, tagsOptions, userClicked, gameStatus, randomImageTags, trys } = this.state;
+        const { giveMeConfetti, randomImageSrc, tagsOptions, userClicked, gameStatus, randomImageTags, trys, data } = this.state;
 
         if (gameStatus === 'loading') {
             return (
@@ -169,51 +167,64 @@ class InstagramRoundOne extends Component {
 
         if (gameStatus === 'playing') {
             return (
+            <div>{data 
+                
+                ?
                 <div className="instagram-game">
-                    <div className="imageAndLocationsContainer">
-                        <div className="imageDisplayedContainer">
-                            <h1>{texts[language].instagramRoundOneQuestion}</h1>
-                            <div className="imageDisplayed">
-                                <img src={randomImageSrc} alt="radom capture from the user's instagram feed" />
-                            </div>
+                <div className="imageAndLocationsContainer">
+                    <div className="imageDisplayedContainer">
+                        <h1>{texts[language].instagramRoundOneQuestion}</h1>
+                        <div className="imageDisplayed">
+                            <img src={randomImageSrc} alt="radom capture from the user's instagram feed" />
                         </div>
-
-                        <div className="instagram-location-buttons">
-                            {tagsOptions.map((option, index) => (
-                                <div key={index} className="instagram-option-button">
-                                    {
-                                        // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
-                                        // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
-                                        giveMeConfetti
-                                    && (
-                                        <Confetti
-                                            width={window.innerWidth}
-                                            height={window.innerHeight}
-                                            recycle={false}
-                                            gravity={0.6}
-                                        />
-                                    )
-                                    }
-                                    <ButtonIgRoundOne
-                                        value={this.formatOptions(option)}
-                                        currentTags={this.formatOptions(randomImageTags)}
-                                        addToCounter={this.addOneToCounter}
-                                        key={index}
-                                        setRandomImageAndTags={this.setRandomImageAndTags}
-                                        userClicked={userClicked}
-                                        userHasClicked={this.userHasClicked}
-                                        showConfetti={this.showConfetti}
-                                        addClick={this.addClick}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <p className="score">
-                            {texts[language].correctAnswers}
-                            {`${this.attempts} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
-                        </p>
                     </div>
+
+                    <div className="instagram-location-buttons">
+                        {tagsOptions.map((option, index) => (
+                            <div key={index} className="instagram-option-button">
+                                {
+                                    // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
+                                    // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
+                                    giveMeConfetti
+                                && (
+                                    <Confetti
+                                        width={window.innerWidth}
+                                        height={window.innerHeight}
+                                        recycle={false}
+                                        gravity={0.6}
+                                    />
+                                )
+                                }
+                                <ButtonIgRoundOne
+                                    value={this.formatOptions(option)}
+                                    currentTags={this.formatOptions(randomImageTags)}
+                                    addToCounter={this.addOneToCounter}
+                                    key={index}
+                                    setRandomImageAndTags={this.setRandomImageAndTags}
+                                    userClicked={userClicked}
+                                    userHasClicked={this.userHasClicked}
+                                    showConfetti={this.showConfetti}
+                                    addClick={this.addClick}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                    <p className="score">
+                        {texts[language].correctAnswers}
+                        {`${this.attempts} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
+                    </p>
                 </div>
+            </div>
+            :
+                <div className="loading">
+                <Loading />
+                </div>
+            
+            }</div>
+
+                
+             
+            
             );
         }
 

@@ -67,7 +67,9 @@
         "addToList": "+",
         "playlistName": "Dóna-li un nom a la llista",
         "Enter": "Entra",
-        "home": "Inici"
+        "home": "Inici",
+        "popUpSpotify": "Prepara’t! Com es diu la cançó que sona?",
+        "key": "Get the music key"
     },
 
     "spanish" : {
@@ -139,7 +141,9 @@
         "addToList": "+",
         "playlistName": "Dale un nombre a tu lista...",
         "Enter": "Entra",
-        "home": "Inicio"
+        "home": "Inicio",
+        "popUpSpotify": "Preparate! Cómo se llama la canción que suena?",
+        "key": "Get the music key"
     },
 
     "english" : {
@@ -209,7 +213,9 @@
         "addToList": "+",
         "playlistName": "Name your list to save it to your Spotify account",
         "Enter": "Enter",
-        "home": "Home"
+        "home": "Home",
+        "popUpSpotify" : "Prepare! What's the name of the song?",
+        "key": "Get the music key"
     },
 
     "french": {
@@ -280,6 +286,8 @@
         "addToList": "+",
         "playlistName": "Nommez votre liste et enregistrez-le sur votre compte de Spotify",
         "Enter": "Entrez",
-         "home": "début"
+         "home": "début",
+         "popUpSpotify": "Prépare-toi! Quelle est cette chanson?",
+         "key": "Get the music key"
     }
 }

@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import './PopUp.css';
+import texts from '../../texts.json';
 
 
 
-const PopUp = (props) => {
+const PopUp = ({popButton, popText, language, todo }) => {
 
     const [timeLeft, setTimeLeft] = useState(5);
     const [popUpClass, setPopUp] = useState('none')
@@ -37,18 +38,19 @@ const PopUp = (props) => {
     return (  
 
     <div >
-        <button className={ popUpClass == 'popUp' ? 'none' : props.popButton}
+        <button className={ popUpClass == 'popUp' ? 'none' : popButton}
            
             onClick={() => closeModal()}
         >
-            {props.popText}
+            {popText}
         </button>
 
       
         <div className={popUpClass}>
 
             <div >
-            <h2 className={'popHead'}>Whats the name of the song? </h2>
+              <h2 className={'popHead'}> {todo}</h2>
+
             <p className={'timer2'}>{timeLeft}</p>
             </div>                
                                 
