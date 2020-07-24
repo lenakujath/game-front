@@ -4,7 +4,8 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-//import PopUp from '../Rounds/PopUp';
+// import PopUp from '../Rounds/PopUp';
+
 
 
 
@@ -14,15 +15,14 @@ import Rounds from '../Rounds/Rounds';
 
 const Home = ({ language }) => {
 
-  
-
     return(
 
     <div className="container">
         <div className="main">
             <p className="playWith">{texts[language].playwithTitle}</p>
+            {/* <PopUp/> */}
             <img src={logo} alt="la pegatina logo" className="laPegatina" />
-            {/* <PopUp></PopUp> */}
+           
             
             <div className="home-play-buttons">
            

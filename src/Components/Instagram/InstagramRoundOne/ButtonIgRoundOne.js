@@ -13,7 +13,9 @@ const ButtonIgRoundOne = (props) => {
         if (props.userClicked) {
             // A button has been already clicked, this will block
             // clicks on the rest of the buttons
+            props.addClick();
             return;
+            
         }
 
         // set userClicked to true, so next buttons clicked will do nothing

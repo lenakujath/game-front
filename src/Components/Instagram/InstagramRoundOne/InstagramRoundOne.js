@@ -29,9 +29,12 @@ class InstagramRoundOne extends Component {
         gameStatus: 'loading',
         userClicked: false,
         giveMeConfetti: false,
+        trys: 0
     }
 
     attempts= 0;
+
+    trys=0;
 
     counter= 0;
 
@@ -124,6 +127,15 @@ class InstagramRoundOne extends Component {
 
     addOneToCounter = () => {
         this.counter += 1;
+
+      
+    }
+
+    addClick = () => {
+
+        
+            this.trys += 1;
+        
     }
 
     userHasClicked = () => {
@@ -145,7 +157,7 @@ class InstagramRoundOne extends Component {
 
         const { language } = this.props;
 
-        const { giveMeConfetti, randomImageSrc, tagsOptions, userClicked, gameStatus, randomImageTags } = this.state;
+        const { giveMeConfetti, randomImageSrc, tagsOptions, userClicked, gameStatus, randomImageTags, trys } = this.state;
 
         if (gameStatus === 'loading') {
             return (
@@ -191,13 +203,14 @@ class InstagramRoundOne extends Component {
                                         userClicked={userClicked}
                                         userHasClicked={this.userHasClicked}
                                         showConfetti={this.showConfetti}
+                                        addClick={this.addClick}
                                     />
                                 </div>
                             ))}
                         </div>
                         <p className="score">
                             {texts[language].correctAnswers}
-                            {`${this.counter} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
+                            {`${this.attempts} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
                         </p>
                     </div>
                 </div>
@@ -211,14 +224,17 @@ class InstagramRoundOne extends Component {
                     {(context) => (
                         <div>
                             <Navbar addedClass="fixTop" />
-                            <Rounds language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
-                                    instagramButton={'hideGame'}/> 
+                           
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
-                                <button className='btn-game' onClick={this.restartInstagram}>Vuelve a jugar</button> 
+                                <Rounds language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
+                                    instagramButton={'hideGame'}/> 
+                                    <button className='btn-game' onClick={this.restartInstagram}>Vuelve a jugar</button> 
+                               
                                 {context.state.username || context.state.email
-                                    ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText} buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />
-                                    : <UserForm language={language} />}
+                                    ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText}
+                                     buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />
+                                    : <UserForm nextButton={'navbar-btn'} language={language} />}
                             </div>
                            
                             <div className="social-media-follow-buttons">

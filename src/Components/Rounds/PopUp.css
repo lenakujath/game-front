@@ -1,13 +1,36 @@
+
+.timer2 {
+
+    color: white;
+    font-size: 2em;
+    margin-top: 30%;
+   
+}
+
 .popUp {
 
-    width: 70vh;
-    height: 70vh;
+    /* position: absolute; */
+    width: 15em;
+    height: 15em;
     margin: auto;
-    background: white;
-    
+    box-shadow:inset 0px 0px 15px 3px #9fb4f2; 
+	/* background:linear-gradient(to bottom, #302c71 5%, #2b2761 100%); */
+	background-color:#3F3E3F;
+	/* border:1px solid #545180; */
+    color: white;
+    /* z-index: 4; */
+    border-radius: 2em;
+    padding: 2em;
 } 
 
-h2 {
+.popHead {
 
-    color: brown;
+    margin-top: 5%;
+    font-size: 2em;
 }
+
+.none {
+
+    display: none;
+}
+

@@ -1,65 +1,60 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './PopUp.css';
 
 
-const PopUp = () => {
 
-        const closeModal = () => {
+const PopUp = (props) => {
 
-        const closeModalButton = document.querySelector('.modalClosingButton');
+    const [timeLeft, setTimeLeft] = useState(5);
+    const [popUpClass, setPopUp] = useState('none')
 
-        setTimeout(() => {
+    const closeModal = () => {
 
-        closeModalButton.click();
-              
-        }, 4000);
+        setTimeLeft(5)   
+        setPopUp('popUp') 
         
     }
 
+    useEffect(() => {
+        if(timeLeft===0){
+           console.log("TIME LEFT IS 0");
+           setTimeLeft(null)
+        }
+       
+        if (!timeLeft) return;
+     
+        
+        const intervalId = setInterval(() => {
+     
+          setTimeLeft(timeLeft - 1);
+        }, 1000);
+     
+      
+        return () => clearInterval(intervalId);
+      
+      }, [timeLeft]);
+
     return (  
 
-        <div >
-        <button 
-            type="button"
-            className="navbar-enter-btn"
-            data-toggle="modal"
-            data-target="#rounds"
+    <div >
+        <button className={ popUpClass == 'popUp' ? 'none' : props.popButton}
+           
             onClick={() => closeModal()}
         >
-            show popup
+            {props.popText}
         </button>
 
-        <div
-            className="modal fade"
-            id="rounds"
-            tabIndex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-        >
-            <div
-                className="modal-dialog modal-dialog-centered"
-                role="document"
-            >
-                <div className="popUp">
+      
+        <div className={popUpClass}>
 
-                   
-                    <div >
-                    <h2>Whats the name of the song?</h2>
-                        <button 
-                            type="button"
-                            className="close modalClosingButton"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                                        
-                </div>
-            </div>
+            <div >
+            <h2 className={'popHead'}>Whats the name of the song? </h2>
+            <p className={'timer2'}>{timeLeft}</p>
+            </div>                
+                                
         </div>
+        
+        
     </div>
 
      )

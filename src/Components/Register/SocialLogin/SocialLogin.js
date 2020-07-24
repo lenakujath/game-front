@@ -153,7 +153,7 @@ const SocialLogin = (props) => {
     
       const responseGoogle =  (response) => {
         console.log(response);  
-         
+        console.log((response.profileObj.imageUrl));
         setEmail(response.profileObj.email);
         setUsername(response.profileObj.givenName);
         setId(response.profileObj.googleId);

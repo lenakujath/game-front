@@ -11,7 +11,7 @@ const lang1 = 'spanish';
 
 
 
-const UserForm = ({ mainpage, language, score, gameIn }) => (
+const UserForm = ({ mainpage, language, score, gameIn, nextButton }) => (
 
     mainpage
         ? (
@@ -24,8 +24,6 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
                 >
                     {localStorage.language ? texts[localStorage.language].Enter : texts[lang1].Enter}
                 </button>
-
-
 
                 <div
                     className="modal fade"
@@ -83,7 +81,7 @@ const UserForm = ({ mainpage, language, score, gameIn }) => (
             <div className="user-form">
                 <button
                     type="button"
-                    className="navbar-btn"
+                    className={nextButton} //navbar-btn
                     data-toggle="modal"
                     data-target="#register"
                 >

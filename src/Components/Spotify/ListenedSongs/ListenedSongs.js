@@ -33,7 +33,7 @@ const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, u
             );
         }
 
-        return <UserForm language={language} score={score} gameIn="spotify" />;
+        return <UserForm nextButton={'navbar-btn'} language={language} score={score} gameIn="spotify" />;
     };
 
 
