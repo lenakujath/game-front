@@ -64,6 +64,16 @@
     margin-top: 1.2rem;
 }
 
+.instagram-game-over .title h1 {
+    
+    margin-left: 3.7em;
+}
+
+.afterRound {
+
+    margin-left: 4em;
+}
+
 .score {
     color: #766dca;
     font-size: 22px;

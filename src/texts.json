@@ -72,7 +72,7 @@
         "popUpSpotify": "Com es diu la cançó que sona?",
         "popUpYoutube": "De quina cançó és aquest videoclip?",
         "popUpInstagram": "On vam fer aquesta foto?",
-        "key": "Get the music key"
+        "key": "Obtenir la clau de música"
     },
 
     "spanish" : {
@@ -149,7 +149,7 @@
         "popUpSpotify": "Cómo se llama la canción que suena?",
         "popUpYoutube": "De qué canción es este videoclip?",
         "popUpInstagram": "Quién sale en esta foto?",
-        "key": "Get the music key"
+        "key": "Obtener la clave de música"
     },
 
     "english" : {
@@ -300,6 +300,6 @@
          "popUpSpotify": "Prépare-toi! Quelle est cette chanson?",
          "popUpYoutube": "Quelle chanson est ce clip vidéo?",
          "popUpInstagram": "Qui est tagué sur cette image?",
-         "key": "Get the music key"
+         "key": "Obtenir la clé musicale"
     }
 }

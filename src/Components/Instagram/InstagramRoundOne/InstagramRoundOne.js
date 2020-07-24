@@ -238,11 +238,11 @@ class InstagramRoundOne extends Component {
                            
                             <div className="instagram-game-over">
                                 <h1>{`Has hecho ${this.counter * 10} puntos`}</h1>
-                                <Rounds language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
+                                <Rounds  language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} homeButton={'btn-game'} youtubeButton={'btn-game'}
                                     instagramButton={'hideGame'}/> 
                                     
                                
-                                <button className='btn-game' onClick={this.restartInstagram}>{texts[language].playAgain}</button> 
+                                <button className='btn-game afterRound' onClick={this.restartInstagram}>{texts[language].playAgain}</button> 
                                 {context.state.username || context.state.email
                                     ? <Register score={this.counter * 10} buttonText={texts[language].keepPointsPlayMoreText}
                                      buttonStyle={'suma-puntos-button'} currentGame="instagram" language={language} />

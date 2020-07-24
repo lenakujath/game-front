@@ -8,8 +8,7 @@ import { MyContext } from '../../../../context/MyProvider';
 // import '../UserProfile/Userprofile.css';
 import texts from '../../../../texts.json';
 
-//steps to follow: import JSON
-//
+const lang3 = 'spanish';
 
 const Login = (props) => {
 
@@ -110,7 +109,7 @@ const Login = (props) => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             name="username"
-                            placeholder={texts[localStorage.language].username}
+                            placeholder={localStorage.language ? texts[localStorage.language].username : texts[lang3].username}
                             type="text"
                             className="input"
                             id="user_login"
@@ -120,13 +119,13 @@ const Login = (props) => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             name="password"
-                            placeholder={texts[localStorage.language].password}
+                            placeholder={localStorage.language ? texts[localStorage.language].password : texts[lang3].password}
                             type="password"
                             className="input"
                             id="user_pass"
                         />
                       
-                        <button className="form-btn" type="submit">{texts[localStorage.language].login}</button>
+                        <button className="form-btn" type="submit">{localStorage.language ? texts[localStorage.language].login : texts[lang3].login}</button>
                     </form>
                 </div>
             </Fragment>

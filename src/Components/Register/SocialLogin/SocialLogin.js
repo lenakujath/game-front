@@ -122,7 +122,7 @@ const SocialLogin = (props) => {
                                             Api.getPoints(data.data.id).then((resp2)=>{
                                                 let user = {...data.data, ...resp2['data']};
                                                 logUserIntoContext(user);
-                                                //window.location.reload(true);
+                                                window.location.reload(true);
                                                 console.log('data you pass to the context', user);
                                             })   
                                         }) 
@@ -209,7 +209,8 @@ const SocialLogin = (props) => {
             onSuccess={responseGoogle}
             onFailure={responseGoogleFail}
         />
-
+      <br></br>
+      <br></br>
         
     </div>
           )}

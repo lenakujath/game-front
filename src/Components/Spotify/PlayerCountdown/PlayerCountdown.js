@@ -11,7 +11,7 @@ import next2 from '../../../Pictures/next2.gif';
 
 //copy playmusicstartTimer in spotifyroundone add a set timeout like in "rendertime" for the case of the last question
 
-const SONG_TIMER_DURATION = 0.1;
+const SONG_TIMER_DURATION = 10;
 
 class PlayerCountdown extends Component {
 
