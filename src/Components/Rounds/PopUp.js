@@ -4,7 +4,7 @@ import texts from '../../texts.json';
 
 
 
-const PopUp = ({popButton, popText, language, todo }) => {
+const PopUp = ({popButton, popText, todo, instruct }) => {
 
     const [timeLeft, setTimeLeft] = useState(5);
     const [popUpClass, setPopUp] = useState('none')
@@ -49,7 +49,7 @@ const PopUp = ({popButton, popText, language, todo }) => {
         <div className={popUpClass}>
 
             <div >
-              <h2 className={'popHead'}> {todo}</h2>
+             <h2 className={'popHead'}> {todo} <br/> {instruct}</h2>
 
             <p className={'timer2'}>{timeLeft}</p>
             </div>                

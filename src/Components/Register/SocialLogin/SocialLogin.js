@@ -179,14 +179,14 @@ const SocialLogin = (props) => {
             ?
             <button onClick={postProfile}>sign</button>
             :
-            <p>chose network</p>
+            <p></p>
         } 
           
 
             
             <GoogleLogin           
             clientId="278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com" //CLIENTID 
-            buttonText=""
+            buttonText="Login with Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
         />

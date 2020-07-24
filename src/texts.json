@@ -68,7 +68,10 @@
         "playlistName": "Dóna-li un nom a la llista",
         "Enter": "Entra",
         "home": "Inici",
-        "popUpSpotify": "Prepara’t! Com es diu la cançó que sona?",
+        "popUp": "Prepara’t!",
+        "popUpSpotify": "Com es diu la cançó que sona?",
+        "popUpYoutube": "De quina cançó és aquest videoclip?",
+        "popUpInstagram": "On vam fer aquesta foto?",
         "key": "Get the music key"
     },
 
@@ -142,7 +145,10 @@
         "playlistName": "Dale un nombre a tu lista...",
         "Enter": "Entra",
         "home": "Inicio",
-        "popUpSpotify": "Preparate! Cómo se llama la canción que suena?",
+        "popUp": "Preparate!",
+        "popUpSpotify": "Cómo se llama la canción que suena?",
+        "popUpYoutube": "De qué canción es este videoclip?",
+        "popUpInstagram": "Quién sale en esta foto?",
         "key": "Get the music key"
     },
 
@@ -214,7 +220,10 @@
         "playlistName": "Name your list to save it to your Spotify account",
         "Enter": "Enter",
         "home": "Home",
-        "popUpSpotify" : "Prepare! What's the name of the song?",
+        "popUp": "Prepare!",
+        "popUpSpotify" : "What's the name of the song?",
+        "popUpYoutube": "How much do you know about the video?",
+        "popUpInstagram": "Who's tagged in this picture?",
         "key": "Get the music key"
     },
 
@@ -287,7 +296,10 @@
         "playlistName": "Nommez votre liste et enregistrez-le sur votre compte de Spotify",
         "Enter": "Entrez",
          "home": "début",
+         "popUp": "Prepare!",
          "popUpSpotify": "Prépare-toi! Quelle est cette chanson?",
+         "popUpYoutube": "Quelle chanson est ce clip vidéo?",
+         "popUpInstagram": "Qui est tagué sur cette image?",
          "key": "Get the music key"
     }
 }

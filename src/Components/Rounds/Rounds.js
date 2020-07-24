@@ -138,11 +138,11 @@ class Rounds extends React.Component {
                        <h1 >{texts[language].roundOneText}</h1>
                     {spotify ?
                         (
-                            <h4>{texts[language].spotifyRoundOneQuestion}</h4>
+                            <h4>{texts[language].youtubeInstructionsR1}</h4>
                         )
                         : instagram ?
                         (
-                            <h4>{texts[language].instagramRoundOneQuestion}</h4>
+                            <h4>{texts[language].youtubeInstructionsR1}</h4>
                         )
                         : youtube ?
                         (
@@ -167,7 +167,8 @@ class Rounds extends React.Component {
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                         <div className={pop ? 'hideGame' : ''}> { context.state.spotify_round_one || ''}</div>
                         <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
-                          <PopUp language={language} todo={texts[language].popUpSpotify} popButton={'button1'} popText={texts[language].roundOneText}/>
+                          <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                           popButton={'button1'} popText={texts[language].roundOneText}/>
                         </DelayLink> 
                     </div>
                     <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
@@ -179,7 +180,8 @@ class Rounds extends React.Component {
                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
                         <div className={pop ? 'hideGame' : ''}> { context.state.youtube_round_one || ''}</div>
                         <DelayLink  delay={5000} clickAction={this.popStart} to="youtuberoundone" >
-                          <PopUp language={language} todo={texts[language].popUpSpotify} popButton={'button1'} popText={texts[language].roundOneText}/>
+                          <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
+                           popButton={'button1'} popText={texts[language].roundOneText}/>
                         </DelayLink> 
                     </div>
                     <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
@@ -188,7 +190,8 @@ class Rounds extends React.Component {
                     <div className={spotify || youtube ? 'hideGame' : 'title'}>
                         <div className={pop ? 'hideGame' : ''}> { context.state.instagram_round_one || ''}</div>
                         <DelayLink  delay={5000} clickAction={this.popStart} to="instagramroundone" >
-                          <PopUp language={language} popButton={'button1'} popText={texts[language].roundOneText}/>
+                          <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
+                           popText={texts[language].roundOneText}/>
                         </DelayLink> 
                     </div>
                     {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
