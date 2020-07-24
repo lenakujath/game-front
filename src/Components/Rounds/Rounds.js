@@ -164,6 +164,7 @@ class Rounds extends React.Component {
                         {context.state.spotify_round_one || texts[language].roundOneText}</button>
                     
                     */}
+                  <div>
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                         <div className={pop ? 'hideGame' : ''}> { context.state.spotify_round_one || ''}</div>
                         <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
@@ -198,6 +199,7 @@ class Rounds extends React.Component {
                     <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
                     <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
                 </div>
+             </div>  
                 
                 <div className="home-play-buttons">
                  
