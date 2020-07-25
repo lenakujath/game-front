@@ -4,7 +4,7 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-// import PopUp from '../Rounds/PopUp';
+
 
 
 
@@ -20,7 +20,7 @@ const Home = ({ language }) => {
     <div className="container">
         <div className="main">
             <p className="playWith">{texts[language].playwithTitle}</p>
-            {/* <PopUp/> */}
+            
             <img src={logo} alt="la pegatina logo" className="laPegatina" />
            
             
