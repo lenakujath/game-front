@@ -67,7 +67,7 @@ const UserPofile = ({language}) => {
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
                                     name="phone"
-                                    placeholder='phone number'
+                                    placeholder={texts[language].phone}
                                     type="text"
                                     className="input"
                                     id="phone_number"
@@ -77,7 +77,7 @@ const UserPofile = ({language}) => {
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                     name="City"
-                                    placeholder='City'
+                                    placeholder={texts[language].phone}
                                     type="text"
                                     className="input"
                                     id="city"
@@ -87,7 +87,7 @@ const UserPofile = ({language}) => {
                                     value={region}
                                     onChange={(e) => setRegion(e.target.value)}
                                     name="region"
-                                    placeholder='region'
+                                    placeholder={texts[language].state}
                                     type="text"
                                     className="input"
                                     id="region"
@@ -107,24 +107,24 @@ const UserPofile = ({language}) => {
                                     </h6>
 
                                     <h6>
-                                        Number:
+                                        {texts[language].phone}:
                                         <p className="myprofile-h6"></p>
                                     </h6>
 
                                     <h6>
-                                        City:
+                                        {texts[language].city}:
                                         <p className="myprofile-h6"></p>
                                     </h6>
 
                                     <h6>
-                                        State/Province:
+                                        {texts[language].state}:
                                         <p className="myprofile-h6"></p>
                                      </h6>
                                     </div>                      
                         }           
 
                         <h6>
-                            Puntos totales:
+                            {texts[language].pointsComplete}:
                             <p className="myprofile-h6">{context.state.total_app_points}</p>
                         </h6>
 
@@ -133,10 +133,10 @@ const UserPofile = ({language}) => {
                         </h4>
 
                         <hr />
-                        <button className="myprofile-btn" onClick={() => setEdit(true)}>Complete Profile</button>
+                        <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
                         {editing
                         ?
-                        <button className="cancelBtn" onClick={() => setEdit(false)}>Cancel</button>
+                        <button className="cancelBtn" onClick={() => setEdit(false)}>{texts[language].cancel}</button>
                         :
                         <p></p>
                         }

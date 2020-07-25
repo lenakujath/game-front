@@ -72,7 +72,13 @@
         "popUpSpotify": "Com es diu la cançó que sona?",
         "popUpYoutube": "De quina cançó és aquest videoclip?",
         "popUpInstagram": "On vam fer aquesta foto?",
-        "key": "Obtenir la clau de música"
+        "key": "Obtenir la clau de música",
+        "pointsComplete": "Total Points",
+        "state": "Ciutat autonoma",
+        "phone": "Telèfon",
+         "city": "Ciutat",
+         "completeProfile": "Commpletar Perfil",
+         "cancel": "Sortir"
     },
 
     "spanish" : {
@@ -149,7 +155,13 @@
         "popUpSpotify": "Cómo se llama la canción que suena?",
         "popUpYoutube": "De qué canción es este videoclip?",
         "popUpInstagram": "Quién sale en esta foto?",
-        "key": "Obtener la clave de música"
+        "key": "Obtener la clave de música",
+        "pointsComplete": "Puntos Totales",
+        "state": "Comunidad autónoma",
+        "phone": "Teléfono",
+         "city": "Ciudad",
+         "completeProfile": "Completar Perfil",
+         "cancel": "Salir"
     },
 
     "english" : {
@@ -224,7 +236,14 @@
         "popUpSpotify" : "What's the name of the song?",
         "popUpYoutube": "How much do you know about the video?",
         "popUpInstagram": "Who's tagged in this picture?",
-        "key": "Get the music key"
+        "key": "Get the music key",
+        "pointsComplete": "Total Points",
+        "state": "State/Province",
+        "phone": "Phone",
+        "city": "City",
+        "completeProfile": "Complete Profile",
+        "cancel": "Cancel"
+
     },
 
     "french": {
@@ -300,6 +319,12 @@
          "popUpSpotify": "Prépare-toi! Quelle est cette chanson?",
          "popUpYoutube": "Quelle chanson est ce clip vidéo?",
          "popUpInstagram": "Qui est tagué sur cette image?",
-         "key": "Obtenir la clé musicale"
+         "key": "Obtenir la clé musicale",
+         "pointsComplete": "Total Points",
+         "state": "Province",
+         "phone": "Téléphone",
+          "city": "Ville",
+          "completeProfile": "Compléter Profil",
+          "cancel": "Sortir"
     }
 }
